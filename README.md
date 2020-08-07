@@ -1,3 +1,3 @@
-# chukky-portfolio
+# My Portfolio
 
 My personal website
