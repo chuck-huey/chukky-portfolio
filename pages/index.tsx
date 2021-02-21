@@ -1,15 +1,21 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Head from "next/head";
+import styled from "styled-components";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+export default function Homepage() {
+  return (
+    <>
+      <Head>
+        <title>Home - Ochuko Ekrresa | Software Engineer</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Main>Hello Ochuko 👋</Main>
+    </>
+  );
+}
 
-export default IndexPage
+const Main = styled.main`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+`;
