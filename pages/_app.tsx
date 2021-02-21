@@ -51,8 +51,9 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     width: 100%;
-    max-width: 100em;
+    max-width: 95em;
     margin: 0 auto;
-    padding: 0 0.3em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
   }
 `;
