@@ -49,11 +49,24 @@ const GlobalStyle = createGlobalStyle`
     object-fit: cover;
   }
 
+	a {
+		color: #4433ff;
+		font-weight:500;
+		text-decoration:none;
+		transition: box-shadow 400ms ease 0s;
+    box-shadow: 0px 0px 0px #4433ff;
+
+		&:hover{
+		transition: box-shadow 100ms ease 0s;
+    box-shadow: 0px 2px 0px #4433ff;
+		}
+	}
+
   .container {
     width: 100%;
     max-width: 95em;
     margin: 0 auto;
     padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding-right: 0.5em;
   }
 `;

@@ -1,15 +1,46 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import * as React from 'react';
+import { CgClose } from 'react-icons/cg';
 
 export default function Homepage() {
+	const [nav, toggleNav] = React.useState(false);
+
+	console.log(nav);
+
 	return (
 		<>
 			<Head>
 				<title>Home - Ochuko Ekrresa | Software Engineer</title>
 			</Head>
-			<Main>
+			<Main navOpen={nav}>
 				<header className="header container">
 					<div className="logo">EKRRESA</div>
+
+					{/* Mobile menu */}
+					<div className="hamburger" onClick={() => toggleNav(!nav)}>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+
+					<aside className="mobile__menu">
+						<CgClose className="close" onClick={() => toggleNav(!nav)} />
+
+						<ul className="menu__list">
+							<li>
+								<a href="#">Projects</a>
+							</li>
+							<li>
+								<a href="#">About</a>
+							</li>
+							<li>
+								<a href="#">Contact</a>
+							</li>
+						</ul>
+					</aside>
+					{/* Mobile menu */}
+
 					<nav className="nav">
 						<div className="nav__item">projects</div>
 						<div className="nav__item">about</div>
@@ -30,8 +61,23 @@ export default function Homepage() {
 					</div>
 					<div className="bio">
 						I am a software engineer, experienced with building systems, and comfortable
-						solving problems on the frontend and backend. Check out my GitHub for cool
-						stuff. For more on my work history, visit my LinkedIn page.
+						solving problems on the frontend and backend. Check out my{' '}
+						<a
+							href="https://github.com/chukky-ekrresa"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							GitHub
+						</a>{' '}
+						for cool stuff. For more on my work history, visit my{' '}
+						<a
+							href="https://www.linkedin.com/in/ochuko-ekrresa/"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							LinkedIn
+						</a>{' '}
+						page.
 					</div>
 				</main>
 			</Main>
@@ -39,9 +85,86 @@ export default function Homepage() {
 	);
 }
 
-const Main = styled.section`
+const Main = styled.section<{ navOpen: any }>`
 	height: 100vh;
 	position: relative;
+	overflow: hidden;
+
+	.hamburger {
+		text-align: end;
+		width: 3em;
+		cursor: pointer;
+		padding: 0px 7px;
+
+		span {
+			display: block;
+			border-radius: 10px;
+			background: #232946;
+			padding: 2px;
+			margin: 7px 0;
+			margin-left: auto;
+
+			&:nth-of-type(1) {
+				width: 80%;
+			}
+
+			&:nth-of-type(2) {
+				width: 100%;
+			}
+
+			&:nth-of-type(3) {
+				width: 65%;
+			}
+		}
+
+		@media (min-width: 500px) {
+			display: none;
+		}
+	}
+
+	.mobile__menu {
+		width: 100%;
+		max-width: 21em;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		background: #eff0f3;
+		box-shadow: -8px 0 21px 0px #1f404c4f;
+		margin-block-start: 0;
+		transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+		visibility: ${({ navOpen }) => (navOpen ? 'visible' : 'hidden')};
+		transform: ${({ navOpen }) => (navOpen ? 'translateX(0)' : 'translateX(100%)')};
+		opacity: ${({ navOpen }) => (navOpen ? 1 : 0)};
+
+		.close {
+			font-size: 2.5rem;
+			margin-left: auto;
+			display: block;
+			margin-right: 0.2em;
+			margin-top: 0.3em;
+			color: #363946;
+		}
+
+		.menu__list {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			list-style: none;
+			padding: 0;
+
+			li {
+				padding: 0.5em;
+				margin-bottom: 1em;
+				font-size: 1.3rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -70,9 +193,9 @@ const Main = styled.section`
 		}
 
 		.nav {
-			display: flex;
+			display: none;
 			align-items: center;
-			color: #0d0d0d;
+			color: #363946;
 			font-weight: 500;
 			font-size: 1rem;
 			text-transform: uppercase;
@@ -84,20 +207,25 @@ const Main = styled.section`
 					margin-right: 0;
 				}
 			}
+
+			@media (min-width: 500px) {
+				display: flex;
+			}
 		}
 	}
 
 	.main {
 		max-width: 70em;
 		margin: auto;
-		margin-top: 12em;
+		margin-top: 8em;
 		text-align: center;
 
 		.name {
-			color: #2a2a2a;
+			color: #232946;
 			font-size: 4.5rem;
 			font-weight: 600;
 			margin: 0;
+			line-height: 1.1;
 		}
 
 		.title {
@@ -110,8 +238,10 @@ const Main = styled.section`
 
 		.skills {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: center;
-			margin-bottom: 1.5em;
+			line-height: 1.8;
+			margin-bottom: 2em;
 			font-weight: 600;
 			text-transform: uppercase;
 			font-size: 1.2rem;
