@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
 import { CgClose } from 'react-icons/cg';
+import { ScrollDown } from '../components/ScrollDown';
 
 export default function Homepage() {
 	const [nav, toggleNav] = React.useState(false);
@@ -78,6 +79,10 @@ export default function Homepage() {
 							LinkedIn
 						</a>{' '}
 						page.
+					</div>
+
+					<div className="scroll__down">
+						<ScrollDown />
 					</div>
 				</main>
 			</Main>
@@ -262,5 +267,20 @@ const Main = styled.section<{ navOpen: any }>`
 			margin: auto;
 			font-size: 1.1rem;
 		}
+
+		@media (min-width: 880px) {
+			margin-top: 10em;
+		}
+
+		@media (min-width: 1100px) {
+			margin-top: 14em;
+		}
+	}
+
+	.scroll__down {
+		position: absolute;
+		bottom: 4em;
+		left: 50%;
+		z-index: -1;
 	}
 `;
