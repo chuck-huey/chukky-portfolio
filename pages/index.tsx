@@ -96,8 +96,12 @@ const Main = styled.section<{ navOpen: any }>`
 	overflow: hidden;
 
 	.hamburger {
-		text-align: end;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: space-around;
 		width: 3em;
+		height: 2.3em;
 		cursor: pointer;
 		padding: 0px 7px;
 
@@ -106,8 +110,6 @@ const Main = styled.section<{ navOpen: any }>`
 			border-radius: 10px;
 			background: #232946;
 			padding: 2px;
-			margin: 7px 0;
-			margin-left: auto;
 
 			&:nth-of-type(1) {
 				width: 80%;
