@@ -93,10 +93,15 @@ export default function Homepage() {
 					<p>
 						Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos, Nigeria.
 						I have over two years experience of working in engineering teams, building
-						products for clients.
+						world class products. I am highly proficient at writing well-designed,
+						testable and efficient code using current best practices in web development.
 					</p>
 					<p>
-						I am currently working with an engineering team at{' '}
+						I also have some leadership experience training/mentoring engineers in the
+						Decagon fellowship program who have gone on to world class engineers.
+					</p>
+					<p>
+						I currently work with an engineering team at{' '}
 						<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
 							UTU Technologies
 						</a>{' '}
