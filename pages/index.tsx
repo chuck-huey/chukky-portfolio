@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
+import { FiExternalLink } from 'react-icons/fi';
 import { ScrollDown } from '../components/ScrollDown';
 
 export default function Homepage() {
@@ -109,6 +111,52 @@ export default function Homepage() {
 					</p>
 				</div>
 			</Section>
+
+			<Section>
+				<h2 className="section__header">Projects</h2>
+				<div className="background">projects</div>
+
+				<section className="showcase">
+					<div className="project__image">
+						<a
+							href="https://star-wars-five.now.sh/"
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							<img
+								src="https://i.imgur.com/kH5eM1v.jpg"
+								alt="star wars directory homepage"
+							/>
+						</a>
+					</div>
+					<div className="project__content">
+						<h2>Star Wars Directory</h2>
+						<p>A web app to explore the star wars mythology</p>
+						<ul className="skills">
+							<li>React</li>
+							<li>React Query</li>
+							<li>React Testing Library</li>
+						</ul>
+
+						<div className="links">
+							<a
+								href="https://star-wars-five.now.sh/"
+								target="_blank"
+								rel="noreferrer noopener"
+							>
+								<FiExternalLink />
+							</a>
+							<a
+								href="https://github.com/chukky-ekrresa/star-wars-app"
+								target="_blank"
+								rel="noreferrer noopener"
+							>
+								<AiOutlineGithub />
+							</a>
+						</div>
+					</div>
+				</section>
+			</Section>
 		</>
 	);
 }
@@ -116,6 +164,10 @@ export default function Homepage() {
 const Section = styled.section`
 	position: relative;
 	overflow-x: hidden;
+	max-width: 60em;
+	margin: 0 auto;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 	margin-top: 10em;
 
 	.background {
@@ -151,6 +203,80 @@ const Section = styled.section`
 		p {
 			line-height: 1.5;
 			color: #232946;
+		}
+	}
+
+	.showcase {
+		display: grid;
+		grid-template-columns: auto;
+		margin-top: 3.8em;
+		margin-bottom: 3em;
+		position: relative;
+
+		.project__image {
+			box-shadow: 0 10px 30px -15px #2a3869;
+		}
+
+		.project__content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			z-index: 10;
+			background: #ffffffd9;
+			color: #312e28;
+			padding: 2em;
+			text-align: end;
+
+			h2 {
+				font-size: 1.3rem;
+				margin-top: 0;
+			}
+
+			.skills {
+				padding-left: 0;
+				list-style: none;
+				display: flex;
+				justify-content: flex-end;
+				flex-wrap: wrap;
+				line-height: 1.4;
+
+				li {
+					margin-right: 1em;
+					font-size: 0.9rem;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+
+			.links {
+				display: flex;
+				justify-content: flex-end;
+
+				a {
+					margin-right: 1em;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+
+				svg {
+					font-size: 1.4rem;
+				}
+			}
+		}
+
+		@media (min-width: 830px) {
+			grid-template-columns: 1fr 40%;
+			grid-gap: 2em;
+
+			.project__content {
+				background: inherit;
+			}
 		}
 	}
 `;

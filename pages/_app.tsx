@@ -69,10 +69,4 @@ const GlobalStyle = createGlobalStyle`
     padding-left: 0.5em;
     padding-right: 0.5em;
   }
-
-	.section__container {
-		width: 100%;
-    max-width: 60em;
-    margin: 0 auto;
-	}
 `;
