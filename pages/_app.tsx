@@ -66,7 +66,13 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 95em;
     margin: 0 auto;
-    padding-left: 0.3em;
+    padding-left: 0.5em;
     padding-right: 0.5em;
   }
+
+	.section__container {
+		width: 100%;
+    max-width: 60em;
+    margin: 0 auto;
+	}
 `;

@@ -7,8 +7,6 @@ import { ScrollDown } from '../components/ScrollDown';
 export default function Homepage() {
 	const [nav, toggleNav] = React.useState(false);
 
-	console.log(nav);
-
 	return (
 		<>
 			<Head>
@@ -86,9 +84,71 @@ export default function Homepage() {
 					</div>
 				</main>
 			</Main>
+
+			<Section className="section__container">
+				<h2 className="section__header">About Me</h2>
+				<div className="background">about me</div>
+
+				<div className="text">
+					<p>
+						Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos, Nigeria.
+						I have over two years experience of working in engineering teams, building
+						products for clients.
+					</p>
+					<p>
+						I am currently working with an engineering team at{' '}
+						<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
+							UTU Technologies
+						</a>{' '}
+						in Kenya, where I work on improving their ride hailing service.
+					</p>
+				</div>
+			</Section>
 		</>
 	);
 }
+
+const Section = styled.section`
+	position: relative;
+	overflow-x: hidden;
+	margin-top: 10em;
+
+	.background {
+		color: rgba(91, 79, 79, 0.02);
+		text-transform: uppercase;
+		position: absolute;
+		z-index: -10;
+		top: -0.2em;
+		font-size: 10rem;
+		font-weight: 700;
+	}
+
+	.section__header {
+		font-size: 2rem;
+		color: #3f5898;
+
+		::after {
+			content: '';
+			display: block;
+			height: 1px;
+			width: 200px;
+			background-color: #3f5898;
+			position: relative;
+			top: -19px;
+			margin-left: 180px;
+		}
+	}
+
+	.text {
+		margin-top: 3em;
+		max-width: 41em;
+
+		p {
+			line-height: 1.5;
+			color: #232946;
+		}
+	}
+`;
 
 const Main = styled.section<{ navOpen: any }>`
 	height: 100vh;
