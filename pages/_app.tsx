@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 95em;
     margin: 0 auto;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 `;

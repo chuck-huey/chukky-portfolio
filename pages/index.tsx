@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
-import { AiOutlineGithub } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
+
 import { ScrollDown } from '../components/ScrollDown';
+import { Project } from '../components/Project';
 
 export default function Homepage() {
 	const [nav, toggleNav] = React.useState(false);
@@ -80,6 +82,10 @@ export default function Homepage() {
 						</a>{' '}
 						page.
 					</div>
+					<div className="actions">
+						<button>Get in touch</button>
+						<button>Resumé</button>
+					</div>
 
 					<div className="scroll__down">
 						<ScrollDown />
@@ -116,46 +122,49 @@ export default function Homepage() {
 				<h2 className="section__header">Projects</h2>
 				<div className="background">projects</div>
 
-				<section className="showcase">
-					<div className="project__image">
-						<a
-							href="https://star-wars-five.now.sh/"
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							<img
-								src="https://i.imgur.com/kH5eM1v.jpg"
-								alt="star wars directory homepage"
-							/>
-						</a>
-					</div>
-					<div className="project__content">
-						<h2>Star Wars Directory</h2>
-						<p>A web app to explore the star wars mythology</p>
-						<ul className="skills">
-							<li>React</li>
-							<li>React Query</li>
-							<li>React Testing Library</li>
-						</ul>
+				<Project
+					alignment="left"
+					projectTitle="ANAP Foundation Admin Portal"
+					imageAlt="star wars directory homepage"
+					imageSrc="https://i.imgur.com/kayzQTL.png"
+					projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
+					projectLink="https://star-wars-five.now.sh/"
+					stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
+				/>
 
-						<div className="links">
-							<a
-								href="https://star-wars-five.now.sh/"
-								target="_blank"
-								rel="noreferrer noopener"
-							>
-								<FiExternalLink />
-							</a>
-							<a
-								href="https://github.com/chukky-ekrresa/star-wars-app"
-								target="_blank"
-								rel="noreferrer noopener"
-							>
-								<AiOutlineGithub />
-							</a>
-						</div>
-					</div>
-				</section>
+				<Project
+					alignment="right"
+					imageAlt="Jumga E-commerce Homepage"
+					imageSrc="https://i.imgur.com/WxfJo6O.png"
+					projectDesc="An e-commerce platform for users in Nigeria, Ghana, Kenya, and the UK. Built in 2 weeks. Payments are handled by Flutterwave."
+					projectLink="https://fluttermart.vercel.app/"
+					projectTitle="Jumga E-commerce Homepage"
+					stack={['React', 'MongoDB', 'Tailwind CSS', 'React Testing Library']}
+					links={[
+						{ url: 'https://fluttermart.vercel.app/', Icon: FiExternalLink },
+						{
+							url: 'https://github.com/chukky-ekrresa/fluttermart',
+							Icon: AiOutlineGithub,
+						},
+					]}
+				/>
+
+				<Project
+					alignment="left"
+					imageAlt="star wars directory homepage"
+					imageSrc="https://i.imgur.com/kH5eM1v.jpg"
+					projectDesc="A web app to explore the star wars mythology."
+					projectLink="https://star-wars-five.now.sh/"
+					projectTitle="Star Wars Directory"
+					stack={['React', 'React Query', 'React Testing Library']}
+					links={[
+						{ url: 'https://star-wars-five.now.sh/', Icon: FiExternalLink },
+						{
+							url: 'https://github.com/chukky-ekrresa/star-wars-app',
+							Icon: AiOutlineGithub,
+						},
+					]}
+				/>
 			</Section>
 		</>
 	);
@@ -164,10 +173,10 @@ export default function Homepage() {
 const Section = styled.section`
 	position: relative;
 	overflow-x: hidden;
-	max-width: 60em;
+	max-width: 70em;
 	margin: 0 auto;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
 	margin-top: 10em;
 
 	.background {
@@ -203,80 +212,6 @@ const Section = styled.section`
 		p {
 			line-height: 1.5;
 			color: #232946;
-		}
-	}
-
-	.showcase {
-		display: grid;
-		grid-template-columns: auto;
-		margin-top: 3.8em;
-		margin-bottom: 3em;
-		position: relative;
-
-		.project__image {
-			box-shadow: 0 10px 30px -15px #2a3869;
-		}
-
-		.project__content {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			z-index: 10;
-			background: #ffffffd9;
-			color: #312e28;
-			padding: 2em;
-			text-align: end;
-
-			h2 {
-				font-size: 1.3rem;
-				margin-top: 0;
-			}
-
-			.skills {
-				padding-left: 0;
-				list-style: none;
-				display: flex;
-				justify-content: flex-end;
-				flex-wrap: wrap;
-				line-height: 1.4;
-
-				li {
-					margin-right: 1em;
-					font-size: 0.9rem;
-
-					&:last-child {
-						margin-right: 0;
-					}
-				}
-			}
-
-			.links {
-				display: flex;
-				justify-content: flex-end;
-
-				a {
-					margin-right: 1em;
-
-					&:last-child {
-						margin-right: 0;
-					}
-				}
-
-				svg {
-					font-size: 1.4rem;
-				}
-			}
-		}
-
-		@media (min-width: 830px) {
-			grid-template-columns: 1fr 40%;
-			grid-gap: 2em;
-
-			.project__content {
-				background: inherit;
-			}
 		}
 	}
 `;
@@ -368,6 +303,7 @@ const Main = styled.section<{ navOpen: any }>`
 		color: rgba(91, 79, 79, 0.02);
 		text-transform: uppercase;
 		font-size: 18rem;
+		font-weight: 600;
 		position: absolute;
 		z-index: -10;
 		top: 50%;
@@ -461,6 +397,24 @@ const Main = styled.section<{ navOpen: any }>`
 			font-size: 1.1rem;
 		}
 
+		.actions {
+			text-align: center;
+			margin-top: 2.5em;
+
+			button {
+				padding: 0.7em;
+				margin-right: 1em;
+				border-radius: 5px;
+				width: 10em;
+				border: 1px solid;
+				cursor: pointer;
+
+				:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
 		@media (min-width: 880px) {
 			margin-top: 10em;
 		}
@@ -471,9 +425,14 @@ const Main = styled.section<{ navOpen: any }>`
 	}
 
 	.scroll__down {
+		display: none;
 		position: absolute;
 		bottom: 4em;
-		left: 50%;
+		left: 49.2%;
 		z-index: -1;
+
+		@media (min-width: 880px) {
+			display: block;
+		}
 	}
 `;
