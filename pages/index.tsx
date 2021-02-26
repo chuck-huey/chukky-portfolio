@@ -2,7 +2,11 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
 import { CgClose } from 'react-icons/cg';
+import { AiOutlineGithub } from 'react-icons/ai';
+import { FiExternalLink } from 'react-icons/fi';
+
 import { ScrollDown } from '../components/ScrollDown';
+import { Project } from '../components/Project';
 
 export default function Homepage() {
 	const [nav, toggleNav] = React.useState(false);
@@ -78,6 +82,10 @@ export default function Homepage() {
 						</a>{' '}
 						page.
 					</div>
+					<div className="actions">
+						<button>Get in touch</button>
+						<button>Resumé</button>
+					</div>
 
 					<div className="scroll__down">
 						<ScrollDown />
@@ -93,16 +101,70 @@ export default function Homepage() {
 					<p>
 						Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos, Nigeria.
 						I have over two years experience of working in engineering teams, building
-						products for clients.
+						world class products. I am highly proficient at writing well-designed,
+						testable and efficient code using current best practices in web development.
 					</p>
 					<p>
-						I am currently working with an engineering team at{' '}
+						I also have some leadership experience training/mentoring engineers in the
+						Decagon fellowship program who have gone on to world class engineers.
+					</p>
+					<p>
+						I currently work with an engineering team at{' '}
 						<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
 							UTU Technologies
 						</a>{' '}
 						in Kenya, where I work on improving their ride hailing service.
 					</p>
 				</div>
+			</Section>
+
+			<Section>
+				<h2 className="section__header">Projects</h2>
+				<div className="background">projects</div>
+
+				<Project
+					alignment="left"
+					projectTitle="ANAP Foundation Admin Portal"
+					imageAlt="star wars directory homepage"
+					imageSrc="https://i.imgur.com/kayzQTL.png"
+					projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
+					projectLink="https://star-wars-five.now.sh/"
+					stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
+				/>
+
+				<Project
+					alignment="right"
+					imageAlt="Jumga E-commerce Homepage"
+					imageSrc="https://i.imgur.com/WxfJo6O.png"
+					projectDesc="An e-commerce platform for users in Nigeria, Ghana, Kenya, and the UK. Built in 2 weeks. Payments are handled by Flutterwave."
+					projectLink="https://fluttermart.vercel.app/"
+					projectTitle="Jumga E-commerce Homepage"
+					stack={['React', 'MongoDB', 'Tailwind CSS', 'React Testing Library']}
+					links={[
+						{ url: 'https://fluttermart.vercel.app/', Icon: FiExternalLink },
+						{
+							url: 'https://github.com/chukky-ekrresa/fluttermart',
+							Icon: AiOutlineGithub,
+						},
+					]}
+				/>
+
+				<Project
+					alignment="left"
+					imageAlt="star wars directory homepage"
+					imageSrc="https://i.imgur.com/kH5eM1v.jpg"
+					projectDesc="A web app to explore the star wars mythology."
+					projectLink="https://star-wars-five.now.sh/"
+					projectTitle="Star Wars Directory"
+					stack={['React', 'React Query', 'React Testing Library']}
+					links={[
+						{ url: 'https://star-wars-five.now.sh/', Icon: FiExternalLink },
+						{
+							url: 'https://github.com/chukky-ekrresa/star-wars-app',
+							Icon: AiOutlineGithub,
+						},
+					]}
+				/>
 			</Section>
 		</>
 	);
@@ -111,6 +173,10 @@ export default function Homepage() {
 const Section = styled.section`
 	position: relative;
 	overflow-x: hidden;
+	max-width: 70em;
+	margin: 0 auto;
+	padding-left: 1em;
+	padding-right: 1em;
 	margin-top: 10em;
 
 	.background {
@@ -237,6 +303,7 @@ const Main = styled.section<{ navOpen: any }>`
 		color: rgba(91, 79, 79, 0.02);
 		text-transform: uppercase;
 		font-size: 18rem;
+		font-weight: 600;
 		position: absolute;
 		z-index: -10;
 		top: 50%;
@@ -330,6 +397,24 @@ const Main = styled.section<{ navOpen: any }>`
 			font-size: 1.1rem;
 		}
 
+		.actions {
+			text-align: center;
+			margin-top: 2.5em;
+
+			button {
+				padding: 0.7em;
+				margin-right: 1em;
+				border-radius: 5px;
+				width: 10em;
+				border: 1px solid;
+				cursor: pointer;
+
+				:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
 		@media (min-width: 880px) {
 			margin-top: 10em;
 		}
@@ -340,9 +425,14 @@ const Main = styled.section<{ navOpen: any }>`
 	}
 
 	.scroll__down {
+		display: none;
 		position: absolute;
 		bottom: 4em;
-		left: 50%;
+		left: 49.2%;
 		z-index: -1;
+
+		@media (min-width: 880px) {
+			display: block;
+		}
 	}
 `;
