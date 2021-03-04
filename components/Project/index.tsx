@@ -48,7 +48,7 @@ export function Project(props: ProjectProps) {
 				{props.links ? (
 					<div className="links">
 						{props.links.map(({ Icon, url }) => (
-							<a href={url} target="_blank" rel="noreferrer noopener">
+							<a key={url} href={url} target="_blank" rel="noreferrer noopener">
 								<Icon />
 							</a>
 						))}
@@ -70,7 +70,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 
 	.project__image {
 		grid-column: 1/-1;
-		box-shadow: 0 10px 30px -15px #2a3869;
+		box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 		opacity: 0.1;
 	}
 
@@ -80,28 +80,27 @@ const StyledProject = styled.section<{ alignment: string }>`
 		z-index: 10;
 		color: #312e28;
 		padding: 2em;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-end;
+		background: #ffffff59;
 
 		h2 {
 			font-size: 1.3rem;
 			margin-top: 0;
+			color: #04395e;
 		}
 
 		.skills {
+			font-family: 'Inconsolata', monospace;
+			font-weight: 500;
 			padding-left: 0;
 			list-style: none;
 			display: flex;
-			justify-content: flex-end;
 			flex-wrap: wrap;
-			line-height: 1.4;
-			margin-bottom: 2em;
+			line-height: 1.8;
 
 			li {
+				font-size: 1rem;
+				white-space: nowrap;
 				margin-right: 1em;
-				font-size: 0.9rem;
 
 				&:last-child {
 					margin-right: 0;
@@ -123,6 +122,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 
 			svg {
 				font-size: 1.4rem;
+				color: #04395e;
 			}
 		}
 	}
@@ -139,12 +139,17 @@ const StyledProject = styled.section<{ alignment: string }>`
 			padding-left: 0;
 			padding-right: 0;
 			right: ${({ alignment }) => (alignment === 'left' ? 0 : 'inherit')};
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			align-items: ${({ alignment }) =>
 				alignment === 'left' ? 'flex-end' : 'flex-start'};
 
 			p {
 				box-shadow: 0 2px 24px -20px #2a3869;
-				background: #81eaf1;
+				background: #8b85c1;
+				color: #edf5fc;
+				font-weight: 500;
 				padding: 1.4em;
 				border-radius: 5px;
 				width: 70%;

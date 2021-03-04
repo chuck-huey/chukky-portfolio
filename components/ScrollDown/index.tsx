@@ -40,7 +40,7 @@ const StyledScroll = styled.div`
 		top: 0;
 		height: 100%;
 		width: 51%;
-		background: #2a2a2a;
+		background: #094067;
 	}
 
 	.chevron:before {
