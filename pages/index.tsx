@@ -98,6 +98,8 @@ export default function Homepage() {
 					<h2 className="section__header">About Me</h2>
 					<div className="background">about me</div>
 
+					{/* https://www.drawkit.io/illustrations/entryway-monochrome */}
+					<img className="about__background" src="/entryway.svg" alt="" />
 					<div className="text">
 						<p>
 							Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos,
@@ -222,7 +224,7 @@ const Body = styled.section`
 
 const Section = styled.section`
 	position: relative;
-	overflow-x: hidden;
+	overflow: hidden;
 	max-width: 70em;
 	margin: 0 auto;
 	padding-left: 1em;
@@ -237,6 +239,19 @@ const Section = styled.section`
 		top: -0.2em;
 		font-size: 10rem;
 		font-weight: 700;
+	}
+
+	.about__background {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 28em;
+		z-index: -20;
+		display: none;
+
+		@media (min-width: 880px) {
+			display: block;
+		}
 	}
 
 	.section__header {
