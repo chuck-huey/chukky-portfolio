@@ -9,8 +9,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+					rel="stylesheet"
+				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap"
 					rel="stylesheet"
 				/>
 				<link rel="icon" href="/favicon.ico" />
@@ -38,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: "Inter", "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
       "Helvetica", "Arial", sans-serif;
-    background: #eff0f3;
+			background: #edf5fc;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
