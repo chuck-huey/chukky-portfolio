@@ -85,7 +85,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 		h2 {
 			font-size: 1.3rem;
 			margin-top: 0;
-			color: #04395e;
+			color: #3f5898e6;
 		}
 
 		.skills {

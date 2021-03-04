@@ -255,18 +255,19 @@ const Section = styled.section`
 	}
 
 	.section__header {
-		font-size: 2rem;
+		font-size: 1.9rem;
 		color: #3f5898;
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
 
 		::after {
 			content: '';
-			display: block;
-			height: 1px;
-			width: 200px;
+			border: 1px solid;
+			width: 10em;
 			background-color: #3f5898;
 			position: relative;
-			top: -19px;
-			margin-left: 180px;
+			margin-left: 1em;
 		}
 	}
 
