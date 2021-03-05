@@ -229,7 +229,7 @@ const Section = styled.section`
 	margin: 0 auto;
 	padding-left: 1em;
 	padding-right: 1em;
-	margin-top: 10em;
+	margin-top: 4em;
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -264,7 +264,7 @@ const Section = styled.section`
 		::after {
 			content: '';
 			border: 1px solid;
-			width: 10em;
+			width: 5em;
 			background-color: #3f5898;
 			position: relative;
 			margin-left: 1em;
