@@ -67,6 +67,27 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 
+	a.btn {
+		background: inherit;
+		color: #04395e;
+		padding: 0.7em;
+		margin-right: 1em;
+		border-radius: 5px;
+		width: 10em;
+		border: 1px solid;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+
+		&:hover {
+			box-shadow: none;
+		}
+
+		:last-child {
+			margin-right: 0;
+		}
+	}
+
   .container {
     width: 100%;
     max-width: 95em;

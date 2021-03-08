@@ -84,8 +84,16 @@ export default function Homepage() {
 							page.
 						</div>
 						<div className="actions">
-							<button>Get in touch</button>
-							<button>Get my Resumé</button>
+							<a className="btn" href="mailto:ekrresaochuko@outlook.com">
+								Get in touch
+							</a>
+							<a
+								className="btn"
+								href="https://drive.google.com/file/d/1KdcDdmWYL87CHy2Q-2DGCS01FRIh_-cW/view?usp=sharing"
+								target="_blank"
+							>
+								Get my Resumé
+							</a>
 						</div>
 
 						<div className="scroll__down">
@@ -94,7 +102,7 @@ export default function Homepage() {
 					</main>
 				</Main>
 
-				<Section className="section__container">
+				<Section>
 					<h2 className="section__header">About Me</h2>
 					<div className="background">about me</div>
 
@@ -170,6 +178,22 @@ export default function Homepage() {
 						]}
 					/>
 				</Section>
+
+				<Section>
+					<h2 className="section__header">contact me</h2>
+					<div className="background">contact</div>
+
+					<div className="text">
+						<p>
+							I'm currently on the lookout for new opportunities. Feel free to shoot me an
+							email!. Whether you want to hire me, have a question or just want to say hi,
+							I'll get back to you as soon as i can!
+						</p>
+					</div>
+					<div style={{ marginTop: '2em' }}>
+						<a className="btn">Contact Me</a>
+					</div>
+				</Section>
 			</Body>
 
 			<Footer className="footer">
@@ -218,7 +242,7 @@ const Body = styled.section`
 	min-height: 100vh;
 	z-index: 2;
 	background: #edf5fc;
-	padding-bottom: 6em;
+	padding-bottom: 10em;
 	position: relative;
 `;
 
@@ -468,21 +492,6 @@ const Main = styled.section<{ navOpen: any }>`
 		.actions {
 			text-align: center;
 			margin-top: 2.5em;
-
-			button {
-				background: inherit;
-				color: #04395e;
-				padding: 0.7em;
-				margin-right: 1em;
-				border-radius: 5px;
-				width: 10em;
-				border: 1px solid;
-				cursor: pointer;
-
-				:last-child {
-					margin-right: 0;
-				}
-			}
 		}
 
 		@media (min-width: 880px) {
