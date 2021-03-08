@@ -38,6 +38,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
+		scroll-behavior: smooth;
   }
 
   body {
@@ -64,6 +65,27 @@ const GlobalStyle = createGlobalStyle`
 		&:hover{
 		transition: box-shadow 100ms ease 0s;
     box-shadow: 0px 2px 0px #4433ff;
+		}
+	}
+
+	a.btn {
+		background: inherit;
+		color: #04395e;
+		padding: 0.7em;
+		margin-right: 1em;
+		border-radius: 5px;
+		width: 10em;
+		border: 1px solid;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+
+		&:hover {
+			box-shadow: none;
+		}
+
+		:last-child {
+			margin-right: 0;
 		}
 	}
 

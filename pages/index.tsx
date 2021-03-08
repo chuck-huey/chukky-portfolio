@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
-import { CgClose } from 'react-icons/cg';
 import { AiOutlineGithub, AiTwotoneHeart } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
 import { ScrollDown } from '../components/ScrollDown';
 import { Project } from '../components/Project';
+import { Hamburger } from '../components/Hamburger';
 
 export default function Homepage() {
 	const [nav, toggleNav] = React.useState(false);
@@ -22,33 +22,25 @@ export default function Homepage() {
 						<div className="logo">EKRRESA</div>
 
 						{/* Mobile menu */}
-						<div className="hamburger" onClick={() => toggleNav(!nav)}>
+						<div className="hamburger__btn" onClick={() => toggleNav(!nav)}>
 							<span></span>
 							<span></span>
 							<span></span>
 						</div>
 
-						<aside className="mobile__menu">
-							<CgClose className="close" onClick={() => toggleNav(!nav)} />
-
-							<ul className="menu__list">
-								<li>
-									<a href="#">Projects</a>
-								</li>
-								<li>
-									<a href="#">About</a>
-								</li>
-								<li>
-									<a href="#">Contact</a>
-								</li>
-							</ul>
-						</aside>
+						<Hamburger navStatus={nav} handleNav={() => toggleNav(!nav)} />
 						{/* Mobile menu */}
 
 						<nav className="nav">
-							<div className="nav__item">projects</div>
-							<div className="nav__item">about</div>
-							<div className="nav__item">contact</div>
+							<div className="nav__item">
+								<a href="#projects">projects</a>
+							</div>
+							<div className="nav__item">
+								<a href="#about">about</a>
+							</div>
+							<div className="nav__item">
+								<a href="#contact">contact</a>
+							</div>
 						</nav>
 					</header>
 
@@ -84,17 +76,25 @@ export default function Homepage() {
 							page.
 						</div>
 						<div className="actions">
-							<button>Get in touch</button>
-							<button>Get my Resumé</button>
+							<a className="btn" href="mailto:ekrresaochuko@gmail.com">
+								Get in touch
+							</a>
+							<a
+								className="btn"
+								href="https://drive.google.com/file/d/1KdcDdmWYL87CHy2Q-2DGCS01FRIh_-cW/view?usp=sharing"
+								target="_blank"
+							>
+								Get my Resumé
+							</a>
 						</div>
 
-						<div className="scroll__down">
+						<a href="#about" className="scroll__down">
 							<ScrollDown />
-						</div>
+						</a>
 					</main>
 				</Main>
 
-				<Section className="section__container">
+				<Section id="about">
 					<h2 className="section__header">About Me</h2>
 					<div className="background">about me</div>
 
@@ -122,7 +122,7 @@ export default function Homepage() {
 					</div>
 				</Section>
 
-				<Section>
+				<Section id="projects">
 					<h2 className="section__header">Projects</h2>
 					<div className="background">projects</div>
 
@@ -169,6 +169,24 @@ export default function Homepage() {
 							},
 						]}
 					/>
+				</Section>
+
+				<Section id="contact">
+					<h2 className="section__header">contact me</h2>
+					<div className="background">contact</div>
+
+					<div className="text">
+						<p>
+							I'm currently on the lookout for new opportunities. Feel free to shoot me an
+							email!. Whether you want to hire me, have a question or just want to say hi,
+							I'll get back to you as soon as i can!
+						</p>
+					</div>
+					<div style={{ marginTop: '2em' }}>
+						<a className="btn" href="mailto:ekrresaochuko@gmail.com">
+							Contact Me
+						</a>
+					</div>
 				</Section>
 			</Body>
 
@@ -218,7 +236,7 @@ const Body = styled.section`
 	min-height: 100vh;
 	z-index: 2;
 	background: #edf5fc;
-	padding-bottom: 6em;
+	padding-bottom: 10em;
 	position: relative;
 `;
 
@@ -287,7 +305,7 @@ const Main = styled.section<{ navOpen: any }>`
 	position: relative;
 	overflow: hidden;
 
-	.hamburger {
+	.hamburger__btn {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
@@ -318,50 +336,6 @@ const Main = styled.section<{ navOpen: any }>`
 
 		@media (min-width: 500px) {
 			display: none;
-		}
-	}
-
-	.mobile__menu {
-		width: 100%;
-		max-width: 21em;
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100vh;
-		background: #eff0f3;
-		box-shadow: -8px 0 21px 0px #1f404c4f;
-		margin-block-start: 0;
-		transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-		visibility: ${({ navOpen }) => (navOpen ? 'visible' : 'hidden')};
-		transform: ${({ navOpen }) => (navOpen ? 'translateX(0)' : 'translateX(100%)')};
-		opacity: ${({ navOpen }) => (navOpen ? 1 : 0)};
-
-		.close {
-			font-size: 2.5rem;
-			margin-left: auto;
-			display: block;
-			margin-right: 0.2em;
-			margin-top: 0.3em;
-			color: #363946;
-		}
-
-		.menu__list {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			list-style: none;
-			padding: 0;
-
-			li {
-				padding: 0.5em;
-				margin-bottom: 1em;
-				font-size: 1.3rem;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
 		}
 	}
 
@@ -402,6 +376,14 @@ const Main = styled.section<{ navOpen: any }>`
 
 			.nav__item {
 				margin-right: 2em;
+
+				a {
+					color: inherit;
+
+					&:hover {
+						box-shadow: 0px 2px 0px #094067;
+					}
+				}
 
 				&:last-child {
 					margin-right: 0;
@@ -468,21 +450,6 @@ const Main = styled.section<{ navOpen: any }>`
 		.actions {
 			text-align: center;
 			margin-top: 2.5em;
-
-			button {
-				background: inherit;
-				color: #04395e;
-				padding: 0.7em;
-				margin-right: 1em;
-				border-radius: 5px;
-				width: 10em;
-				border: 1px solid;
-				cursor: pointer;
-
-				:last-child {
-					margin-right: 0;
-				}
-			}
 		}
 
 		@media (min-width: 880px) {
@@ -499,7 +466,11 @@ const Main = styled.section<{ navOpen: any }>`
 		position: absolute;
 		bottom: 4em;
 		left: 49.2%;
-		z-index: -1;
+		cursor: pointer;
+
+		&:hover {
+			box-shadow: none;
+		}
 
 		@media (min-width: 880px) {
 			display: block;
