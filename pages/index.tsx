@@ -32,9 +32,15 @@ export default function Homepage() {
 						{/* Mobile menu */}
 
 						<nav className="nav">
-							<div className="nav__item">projects</div>
-							<div className="nav__item">about</div>
-							<div className="nav__item">contact</div>
+							<div className="nav__item">
+								<a href="#projects">projects</a>
+							</div>
+							<div className="nav__item">
+								<a href="#about">about</a>
+							</div>
+							<div className="nav__item">
+								<a href="#contact">contact</a>
+							</div>
 						</nav>
 					</header>
 
@@ -82,13 +88,13 @@ export default function Homepage() {
 							</a>
 						</div>
 
-						<div className="scroll__down">
+						<a href="#about" className="scroll__down">
 							<ScrollDown />
-						</div>
+						</a>
 					</main>
 				</Main>
 
-				<Section>
+				<Section id="about">
 					<h2 className="section__header">About Me</h2>
 					<div className="background">about me</div>
 
@@ -116,7 +122,7 @@ export default function Homepage() {
 					</div>
 				</Section>
 
-				<Section>
+				<Section id="projects">
 					<h2 className="section__header">Projects</h2>
 					<div className="background">projects</div>
 
@@ -165,7 +171,7 @@ export default function Homepage() {
 					/>
 				</Section>
 
-				<Section>
+				<Section id="contact">
 					<h2 className="section__header">contact me</h2>
 					<div className="background">contact</div>
 
@@ -371,6 +377,14 @@ const Main = styled.section<{ navOpen: any }>`
 			.nav__item {
 				margin-right: 2em;
 
+				a {
+					color: inherit;
+
+					&:hover {
+						box-shadow: 0px 2px 0px #094067;
+					}
+				}
+
 				&:last-child {
 					margin-right: 0;
 				}
@@ -452,7 +466,11 @@ const Main = styled.section<{ navOpen: any }>`
 		position: absolute;
 		bottom: 4em;
 		left: 49.2%;
-		z-index: -1;
+		cursor: pointer;
+
+		&:hover {
+			box-shadow: none;
+		}
 
 		@media (min-width: 880px) {
 			display: block;
