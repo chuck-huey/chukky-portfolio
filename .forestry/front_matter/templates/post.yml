@@ -1,6 +1,7 @@
 ---
 label: Post
-hide_body: true
+hide_body: false
+display_field: post_title
 fields:
 - name: post_title
   type: text
@@ -33,4 +34,4 @@ fields:
       format: markdown
   label: post summary
 pages:
-- posts/hahaha.md
+- posts/How I Built my Blog with Forestry CMS.md
