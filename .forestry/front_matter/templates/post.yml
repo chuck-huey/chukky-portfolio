@@ -23,3 +23,12 @@ fields:
   type: tag_list
   default: []
   label: post tags
+- name: post_summary
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: post summary
