@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { CgClose } from 'react-icons/cg';
 
 export function Hamburger({ navStatus = false, handleNav = () => {} }) {
-	console.log({ navStatus, handleNav });
 	return (
 		<StyledHamburger navOpen={navStatus}>
 			<CgClose className="close" onClick={() => handleNav()} />
