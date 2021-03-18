@@ -1,0 +1,36 @@
+---
+label: Post
+hide_body: true
+fields:
+- name: post_title
+  type: text
+  config:
+    required: true
+  label: post title
+  description: The title of a blog post
+  hidden: false
+- name: publish_date
+  type: datetime
+  label: publish date
+  description: Date post was published
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+- name: post_tags
+  type: tag_list
+  default: []
+  label: post tags
+- name: post_summary
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: post summary
+pages:
+- posts/hahaha.md
