@@ -3,14 +3,14 @@ label: Post
 hide_body: false
 display_field: post_title
 fields:
-- name: post_title
+- name: title
   type: text
   config:
     required: true
   label: post title
   description: The title of a blog post
   hidden: false
-- name: publish_date
+- name: date
   type: datetime
   label: publish date
   description: Date post was published
@@ -20,11 +20,11 @@ fields:
     time_format: 
     display_utc: false
   default: now
-- name: post_tags
+- name: tags
   type: tag_list
   default: []
   label: post tags
-- name: post_summary
+- name: summary
   type: textarea
   default: ''
   config:
