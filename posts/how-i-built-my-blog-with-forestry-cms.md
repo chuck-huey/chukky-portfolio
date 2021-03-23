@@ -39,6 +39,8 @@ A list of fruits:
 3. Lemons
 4. Grapes
 
+![](https://res.cloudinary.com/chuck-huey/image/upload/v1616515588/personal/blog/images/olivia-sisinni-bg_juc3tn.jpg)dummy image
+
 ## Prologue
 
 This is when the music stops and it all goes silent and mama mia says HHAAAA!!!!.
