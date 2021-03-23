@@ -1,5 +1,5 @@
 ---
-publish_date: 2021-03-18T18:50:19Z
+publish_date: '2021-03-18T18:50:19.000+00:00'
 post_tags:
 - forestrycms
 - " jamstack"

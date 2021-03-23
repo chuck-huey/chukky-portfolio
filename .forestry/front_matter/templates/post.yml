@@ -34,4 +34,4 @@ fields:
       format: markdown
   label: post summary
 pages:
-- posts/How I Built my Blog with Forestry CMS.md
+- posts/how-i-built-my-blog-with-forestry-cms.md
