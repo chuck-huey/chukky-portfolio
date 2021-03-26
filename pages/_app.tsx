@@ -48,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
+		overflow-x: hidden;
   }
 
   img {
@@ -91,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     width: 100%;
-    max-width: 95em;
+    max-width: 82em;
     margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;

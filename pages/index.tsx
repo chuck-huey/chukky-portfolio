@@ -4,45 +4,27 @@ import * as React from 'react';
 import { AiOutlineGithub, AiTwotoneHeart } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
-import { ScrollDown } from '../components/ScrollDown';
+import { Body } from '../components/Body';
+import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
-import { Hamburger } from '../components/Hamburger';
+import { ScrollDown } from '../components/ScrollDown';
+
+const navList = [
+	{ text: 'blog', url: '/blog' },
+	{ text: 'projects', url: '#projects' },
+	{ text: 'about', url: '#about' },
+	{ text: 'contact', url: '#contact' },
+];
 
 export default function Homepage() {
-	const [nav, toggleNav] = React.useState(false);
-
 	return (
 		<>
 			<Head>
 				<title>Home - Ochuko Ekrresa | Software Engineer</title>
 			</Head>
 			<Body>
-				<Main navOpen={nav}>
-					<header className="header container">
-						<div className="logo">EKRRESA</div>
-
-						{/* Mobile menu */}
-						<div className="hamburger__btn" onClick={() => toggleNav(!nav)}>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-
-						<Hamburger navStatus={nav} handleNav={() => toggleNav(!nav)} />
-						{/* Mobile menu */}
-
-						<nav className="nav">
-							<div className="nav__item">
-								<a href="#projects">projects</a>
-							</div>
-							<div className="nav__item">
-								<a href="#about">about</a>
-							</div>
-							<div className="nav__item">
-								<a href="#contact">contact</a>
-							</div>
-						</nav>
-					</header>
+				<Main>
+					<NavBar homeUrl="/" navList={navList} />
 
 					<div className="background">ekrresa</div>
 
@@ -76,8 +58,8 @@ export default function Homepage() {
 							page.
 						</div>
 						<div className="actions">
-							<a className="btn" href="mailto:ekrresaochuko@gmail.com">
-								Get in touch
+							<a className="btn" href="#projects">
+								View my Projects
 							</a>
 							<a
 								className="btn"
@@ -232,14 +214,6 @@ const Footer = styled.footer`
 	}
 `;
 
-const Body = styled.section`
-	min-height: 100vh;
-	z-index: 2;
-	background: #edf5fc;
-	padding-bottom: 10em;
-	position: relative;
-`;
-
 const Section = styled.section`
 	position: relative;
 	overflow: hidden;
@@ -275,18 +249,9 @@ const Section = styled.section`
 	.section__header {
 		font-size: 1.9rem;
 		color: #3f5898;
-		display: flex;
-		align-items: center;
+		display: inline-block;
 		text-transform: uppercase;
-
-		::after {
-			content: '';
-			border: 1px solid;
-			width: 5em;
-			background-color: #3f5898;
-			position: relative;
-			margin-left: 1em;
-		}
+		border-bottom: 3px solid #3f5898;
 	}
 
 	.text {
@@ -300,44 +265,10 @@ const Section = styled.section`
 	}
 `;
 
-const Main = styled.section<{ navOpen: any }>`
+const Main = styled.section`
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
-
-	.hamburger__btn {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		justify-content: space-around;
-		width: 3em;
-		height: 2.3em;
-		cursor: pointer;
-		padding: 0px 7px;
-
-		span {
-			display: block;
-			border-radius: 10px;
-			background: #232946;
-			padding: 2px;
-
-			&:nth-of-type(1) {
-				width: 80%;
-			}
-
-			&:nth-of-type(2) {
-				width: 100%;
-			}
-
-			&:nth-of-type(3) {
-				width: 65%;
-			}
-		}
-
-		@media (min-width: 500px) {
-			display: none;
-		}
-	}
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -349,51 +280,6 @@ const Main = styled.section<{ navOpen: any }>`
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-	}
-
-	.header {
-		display: flex;
-		justify-content: space-between;
-		padding-top: 1em;
-		padding-bottom: 1em;
-
-		.logo {
-			font-size: 1.9rem;
-			color: #3f5898;
-			font-weight: 800;
-			letter-spacing: 0.5px;
-			-webkit-text-stroke: #292929;
-			-webkit-text-stroke-width: 1.3px;
-		}
-
-		.nav {
-			display: none;
-			align-items: center;
-			color: #094067;
-			font-weight: 500;
-			font-size: 1rem;
-			text-transform: uppercase;
-
-			.nav__item {
-				margin-right: 2em;
-
-				a {
-					color: inherit;
-
-					&:hover {
-						box-shadow: 0px 2px 0px #094067;
-					}
-				}
-
-				&:last-child {
-					margin-right: 0;
-				}
-			}
-
-			@media (min-width: 500px) {
-				display: flex;
-			}
-		}
 	}
 
 	.main {
