@@ -40,9 +40,10 @@ const StyledHamburger = styled.aside<{ navOpen: boolean }>`
 		font-size: 2.5rem;
 		margin-left: auto;
 		display: block;
-		margin-right: 0.2em;
-		margin-top: 0.3em;
-		color: #363946;
+		margin-right: 0.4em;
+		margin-top: 0.5em;
+		color: #232946;
+		cursor: pointer;
 	}
 
 	.menu__list {

@@ -1,48 +1,29 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import * as React from 'react';
-import { AiOutlineGithub, AiTwotoneHeart } from 'react-icons/ai';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
-import { ScrollDown } from '../components/ScrollDown';
+import { Body } from '../components/Body';
+import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
-import { Hamburger } from '../components/Hamburger';
+
+const navList = [
+	{ text: 'blog', url: '/blog' },
+	{ text: 'projects', url: '#projects' },
+	{ text: 'about', url: '#about' },
+	{ text: 'contact', url: '#contact' },
+];
 
 export default function Homepage() {
-	const [nav, toggleNav] = React.useState(false);
-
 	return (
 		<>
 			<Head>
 				<title>Home - Ochuko Ekrresa | Software Engineer</title>
 			</Head>
 			<Body>
-				<Main navOpen={nav}>
-					<header className="header container">
-						<div className="logo">EKRRESA</div>
-
-						{/* Mobile menu */}
-						<div className="hamburger__btn" onClick={() => toggleNav(!nav)}>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-
-						<Hamburger navStatus={nav} handleNav={() => toggleNav(!nav)} />
-						{/* Mobile menu */}
-
-						<nav className="nav">
-							<div className="nav__item">
-								<a href="#projects">projects</a>
-							</div>
-							<div className="nav__item">
-								<a href="#about">about</a>
-							</div>
-							<div className="nav__item">
-								<a href="#contact">contact</a>
-							</div>
-						</nav>
-					</header>
+				<Main>
+					<NavBar homeUrl="/" navList={navList} />
 
 					<div className="background">ekrresa</div>
 
@@ -76,8 +57,8 @@ export default function Homepage() {
 							page.
 						</div>
 						<div className="actions">
-							<a className="btn" href="mailto:ekrresaochuko@gmail.com">
-								Get in touch
+							<a className="btn" href="#projects">
+								View my Projects
 							</a>
 							<a
 								className="btn"
@@ -87,123 +68,120 @@ export default function Homepage() {
 								Get my Resumé
 							</a>
 						</div>
-
-						<a href="#about" className="scroll__down">
-							<ScrollDown />
-						</a>
 					</main>
 				</Main>
 
 				<Section id="about">
-					<h2 className="section__header">About Me</h2>
-					<div className="background">about me</div>
+					<div className="container">
+						<h2 className="section__header">About Me</h2>
+						<div className="background">about me</div>
 
-					{/* https://www.drawkit.io/illustrations/entryway-monochrome */}
-					<img className="about__background" src="/entryway.svg" alt="" />
-					<div className="text">
-						<p>
-							Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos,
-							Nigeria. I have over two years experience of working in engineering teams,
-							building world class products. I am highly proficient at writing
-							well-designed, testable and efficient code using current best practices in
-							web development.
-						</p>
-						<p>
-							I also have some leadership experience training/mentoring engineers in the
-							Decagon fellowship program who have gone on to world class engineers.
-						</p>
-						<p>
-							I currently work with an engineering team at{' '}
-							<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
-								UTU Technologies
-							</a>{' '}
-							in Kenya, where I work on improving their ride hailing service.
-						</p>
+						{/* https://www.drawkit.io/illustrations/entryway-monochrome */}
+						<img className="about__background" src="/entryway.svg" alt="" />
+						<div className="text">
+							<p>
+								Hi, I'm Ochuko Ekrresa, a software engineer currently based in Lagos,
+								Nigeria. I have over two years experience of working in engineering teams,
+								building world class products. I am highly proficient at writing
+								well-designed, testable and efficient code using current best practices in
+								web development.
+							</p>
+							<p>
+								I also have some leadership experience training/mentoring engineers in the
+								Decagon fellowship program who have gone on to world class engineers.
+							</p>
+							<p>
+								I currently work with an engineering team at{' '}
+								<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
+									UTU Technologies
+								</a>{' '}
+								in Kenya, where I work on improving their ride hailing service.
+							</p>
+						</div>
 					</div>
 				</Section>
 
 				<Section id="projects">
-					<h2 className="section__header">Projects</h2>
-					<div className="background">projects</div>
+					<div className="container">
+						<h2 className="section__header">Projects</h2>
+						<div className="background">projects</div>
 
-					<Project
-						alignment="left"
-						projectTitle="ANAP Foundation Admin Portal"
-						imageAlt="star wars directory homepage"
-						imageSrc="https://i.imgur.com/kayzQTL.png"
-						projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
-						projectLink="https://star-wars-five.now.sh/"
-						stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
-					/>
+						<Project
+							alignment="left"
+							projectTitle="ANAP Foundation Admin Portal"
+							imageAlt="star wars directory homepage"
+							imageSrc="https://i.imgur.com/kayzQTL.png"
+							projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
+							projectLink="https://star-wars-five.now.sh/"
+							stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
+						/>
 
-					<Project
-						alignment="right"
-						imageAlt="Jumga E-commerce Homepage"
-						imageSrc="https://i.imgur.com/WxfJo6O.png"
-						projectDesc="An e-commerce platform for users in Nigeria, Ghana, Kenya, and the UK. Built in 2 weeks. Payments are handled by Flutterwave."
-						projectLink="https://fluttermart.vercel.app/"
-						projectTitle="Jumga E-commerce"
-						stack={['React', 'MongoDB', 'Tailwind CSS', 'React Testing Library']}
-						links={[
-							{ url: 'https://fluttermart.vercel.app/', Icon: FiExternalLink },
-							{
-								url: 'https://github.com/chukky-ekrresa/fluttermart',
-								Icon: AiOutlineGithub,
-							},
-						]}
-					/>
+						<Project
+							alignment="right"
+							imageAlt="Jumga E-commerce Homepage"
+							imageSrc="https://i.imgur.com/WxfJo6O.png"
+							projectDesc="An e-commerce platform for users in Nigeria, Ghana, Kenya, and the UK. Built in 2 weeks. Payments are handled by Flutterwave."
+							projectLink="https://fluttermart.vercel.app/"
+							projectTitle="Jumga"
+							stack={['React', 'MongoDB', 'Tailwind CSS', 'React Testing Library']}
+							links={[
+								{ url: 'https://fluttermart.vercel.app/', Icon: FiExternalLink },
+								{
+									url: 'https://github.com/chukky-ekrresa/fluttermart',
+									Icon: AiOutlineGithub,
+								},
+							]}
+						/>
 
-					<Project
-						alignment="left"
-						imageAlt="star wars directory homepage"
-						imageSrc="https://i.imgur.com/kH5eM1v.jpg"
-						projectDesc="A web app to explore the star wars mythology."
-						projectLink="https://star-wars-five.now.sh/"
-						projectTitle="Star Wars Directory"
-						stack={['React', 'React Query', 'React Testing Library']}
-						links={[
-							{ url: 'https://star-wars-five.now.sh/', Icon: FiExternalLink },
-							{
-								url: 'https://github.com/chukky-ekrresa/star-wars-app',
-								Icon: AiOutlineGithub,
-							},
-						]}
-					/>
+						<Project
+							alignment="left"
+							imageAlt="star wars directory homepage"
+							imageSrc="https://i.imgur.com/kH5eM1v.jpg"
+							projectDesc="A web app to explore the star wars mythology."
+							projectLink="https://star-wars-five.now.sh/"
+							projectTitle="Star Wars Directory"
+							stack={['React', 'React Query', 'React Testing Library']}
+							links={[
+								{ url: 'https://star-wars-five.now.sh/', Icon: FiExternalLink },
+								{
+									url: 'https://github.com/chukky-ekrresa/star-wars-app',
+									Icon: AiOutlineGithub,
+								},
+							]}
+						/>
+					</div>
 				</Section>
 
 				<Section id="contact">
-					<h2 className="section__header">contact me</h2>
-					<div className="background">contact</div>
+					<div className="container">
+						<h2 className="section__header">contact me</h2>
+						<div className="background">contact</div>
 
-					<div className="text">
-						<p>
-							I'm currently on the lookout for new opportunities. Feel free to shoot me an
-							email!. Whether you want to hire me, have a question or just want to say hi,
-							I'll get back to you as soon as i can!
-						</p>
-					</div>
-					<div style={{ marginTop: '2em' }}>
-						<a className="btn" href="mailto:ekrresaochuko@gmail.com">
-							Contact Me
-						</a>
+						<div className="text">
+							<p>
+								I'm currently on the lookout for new opportunities. Feel free to shoot me
+								an email!. Whether you want to hire me, have a question or just want to
+								say hi, I'll get back to you as soon as i can!
+							</p>
+						</div>
+						<div style={{ marginTop: '2em' }}>
+							<a className="btn" href="mailto:ekrresaochuko@gmail.com">
+								Contact Me
+							</a>
+						</div>
 					</div>
 				</Section>
 			</Body>
 
 			<Footer className="footer">
 				<p>
-					Created with
-					<AiTwotoneHeart className="love" /> by{' '}
+					Designed & Developed by{' '}
 					<a
 						href="https://github.com/chukky-ekrresa"
 						target="_blank"
 						rel="noreferrer noopener"
 					>
 						Ochuko Ekrresa.
-					</a>{' '}
-					Inspired by{' '}
-					<a href="https://brittanychiang.com/" target="_blank" rel="noreferrer noopener">
-						Brittany Chiang
 					</a>
 				</p>
 			</Footer>
@@ -232,22 +210,11 @@ const Footer = styled.footer`
 	}
 `;
 
-const Body = styled.section`
-	min-height: 100vh;
-	z-index: 2;
-	background: #edf5fc;
-	padding-bottom: 10em;
-	position: relative;
-`;
-
 const Section = styled.section`
 	position: relative;
 	overflow: hidden;
-	max-width: 70em;
-	margin: 0 auto;
-	padding-left: 1em;
-	padding-right: 1em;
-	margin-top: 4em;
+	margin-top: 1em;
+	margin-bottom: 8em;
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -274,19 +241,10 @@ const Section = styled.section`
 
 	.section__header {
 		font-size: 1.9rem;
-		color: #3f5898;
-		display: flex;
-		align-items: center;
+		color: #006ccc;
+		display: inline-block;
 		text-transform: uppercase;
-
-		::after {
-			content: '';
-			border: 1px solid;
-			width: 5em;
-			background-color: #3f5898;
-			position: relative;
-			margin-left: 1em;
-		}
+		border-bottom: 3px solid #006ccc;
 	}
 
 	.text {
@@ -294,50 +252,16 @@ const Section = styled.section`
 		max-width: 41em;
 
 		p {
-			line-height: 1.5;
+			line-height: 1.7;
 			color: #094067;
 		}
 	}
 `;
 
-const Main = styled.section<{ navOpen: any }>`
+const Main = styled.section`
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
-
-	.hamburger__btn {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		justify-content: space-around;
-		width: 3em;
-		height: 2.3em;
-		cursor: pointer;
-		padding: 0px 7px;
-
-		span {
-			display: block;
-			border-radius: 10px;
-			background: #232946;
-			padding: 2px;
-
-			&:nth-of-type(1) {
-				width: 80%;
-			}
-
-			&:nth-of-type(2) {
-				width: 100%;
-			}
-
-			&:nth-of-type(3) {
-				width: 65%;
-			}
-		}
-
-		@media (min-width: 500px) {
-			display: none;
-		}
-	}
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -351,71 +275,37 @@ const Main = styled.section<{ navOpen: any }>`
 		transform: translate(-50%, -50%);
 	}
 
-	.header {
-		display: flex;
-		justify-content: space-between;
-		padding-top: 1em;
-		padding-bottom: 1em;
-
-		.logo {
-			font-size: 1.9rem;
-			color: #3f5898;
-			font-weight: 800;
-			letter-spacing: 0.5px;
-			-webkit-text-stroke: #292929;
-			-webkit-text-stroke-width: 1.3px;
-		}
-
-		.nav {
-			display: none;
-			align-items: center;
-			color: #094067;
-			font-weight: 500;
-			font-size: 1rem;
-			text-transform: uppercase;
-
-			.nav__item {
-				margin-right: 2em;
-
-				a {
-					color: inherit;
-
-					&:hover {
-						box-shadow: 0px 2px 0px #094067;
-					}
-				}
-
-				&:last-child {
-					margin-right: 0;
-				}
-			}
-
-			@media (min-width: 500px) {
-				display: flex;
-			}
-		}
-	}
-
 	.main {
-		max-width: 70em;
-		margin: auto;
 		margin-top: 8em;
 		text-align: center;
 
 		.name {
 			color: #04395e;
-			font-size: 4.5rem;
+			color: #006ccc;
+			font-size: 3.2rem;
 			font-weight: 600;
 			margin: 0;
 			line-height: 1.1;
+
+			@media (min-width: 800px) {
+				font-size: 4rem;
+			}
+
+			@media (min-width: 1000px) {
+				font-size: 4.5rem;
+			}
 		}
 
 		.title {
 			color: #094067;
-			font-size: 2.5rem;
+			font-size: 2rem;
 			font-weight: 500;
 			margin-top: 0.2em;
 			margin-bottom: 0.7em;
+
+			@media (min-width: 800px) {
+				font-size: 2.5rem;
+			}
 		}
 
 		.skills {
@@ -424,6 +314,7 @@ const Main = styled.section<{ navOpen: any }>`
 			justify-content: center;
 			line-height: 1.8;
 			margin-bottom: 2em;
+			font-family: var(--font-fam-heading);
 			font-weight: 600;
 			text-transform: uppercase;
 			font-size: 1.2rem;
@@ -450,6 +341,10 @@ const Main = styled.section<{ navOpen: any }>`
 		.actions {
 			text-align: center;
 			margin-top: 2.5em;
+
+			a {
+				font-weight: 500;
+			}
 		}
 
 		@media (min-width: 880px) {
