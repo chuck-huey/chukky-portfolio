@@ -11,11 +11,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
+					href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+					rel="stylesheet"
+				/>
+				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
 					rel="stylesheet"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap"
 					rel="stylesheet"
 				/>
 				<link rel="icon" href="/favicon.ico" />
@@ -39,17 +43,24 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
 		scroll-behavior: smooth;
+		--font-fam-heading: 'Ubuntu', sans-serif;
+		--font-fam-code: 'Source Code Pro', monospace;
+		--font-fam-text: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+		"Helvetica Neue", Arial, 		sans-serif;
   }
 
   body {
-    font-family: "Inter", "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
-      "Helvetica", "Arial", sans-serif;
-			background: #edf5fc;
+    font-family: var(--font-fam-text);
+		background: #fffffe;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
 		overflow-x: hidden;
   }
+
+	h1,h2,h3,h4,h5,h6 {
+		font-family: var(--font-fam-heading)
+	}
 
   img {
     width: 100%;
@@ -58,7 +69,8 @@ const GlobalStyle = createGlobalStyle`
 
 	a {
 		color: #4433ff;
-		font-weight:500;
+		font-weight: 600;
+		font-family: var(--font-fam-heading);
 		text-decoration:none;
 		transition: box-shadow 400ms ease 0s;
     box-shadow: 0px 0px 0px #4433ff;
@@ -96,5 +108,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;
+		position: inherit;
   }
+
+	.nav__container {
+		width: 100%;
+    max-width: 82em;
+    margin: 0 auto;
+    padding-left: 1em;
+    padding-right: 1em;
+	}
 `;

@@ -17,7 +17,7 @@ export function NavBar(props: NavProps) {
 	const { homeUrl, navList } = props;
 
 	return (
-		<StyledHeader className="container">
+		<StyledHeader className="nav__container">
 			<div className="logo">
 				<Link href={homeUrl}>EKRRESA</Link>
 			</div>
@@ -58,10 +58,11 @@ const StyledHeader = styled.header`
 		-webkit-text-stroke-width: 1.3px;
 
 		a {
+			font-family: var(--font-fam-heading);
 			color: inherit;
 
 			&:hover {
-				color: inherit;
+				box-shadow: none;
 			}
 		}
 	}
@@ -79,6 +80,7 @@ const StyledHeader = styled.header`
 
 			a {
 				color: inherit;
+				font-family: var(--font-fam-heading);
 
 				&:hover {
 					box-shadow: 0px 2px 0px #094067;
