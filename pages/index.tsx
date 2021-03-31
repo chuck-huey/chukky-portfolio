@@ -344,6 +344,7 @@ const Main = styled.section`
 
 			a {
 				font-weight: 500;
+				font-family: var(--font-fam-text);
 			}
 		}
 
