@@ -6,41 +6,62 @@ post_tags:
 - blog
 post_title: Hello World - How I Built my Blog with Forestry CMS
 post_summary: How I setup my blog with Forestry CMS
-title: Hello World - How I built my Blog with Forestry CMS
+title: How I built my Blog with Forestry CMS
 tags:
-- forestry
 - blog
-summary: How I built my blog with Forestry CMS.
+- 'forestrycms '
+- jamstack
+- nextjs
+summary: A simple guide on how I integrated Forestry into my blog to manage my articles.
 date: 2021-03-23T15:33:44Z
 
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+This is the _hello-world_ article for my blog. In this article, I will show you how to integrate [Forestry](https://forestry.io/) into your blog to handle content management. I was doing some research on the best CMS to use for my blog, and I discovered Forestry from an article by [Gift Egwuenu](https://giftegwuenu.netlify.app/how-i-moved-my-blog-to-forestry-cms/). I was intrigued by the fact that it stores your content in your Git provider. Essentially, you own your content, which is great.
 
-## **Subdomain**
+Forestry is a git-based content management system (CMS) for websites and web products built using [**_static site generators_**](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository. 
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+I built my blog with NextJS, and my posts are saved in markdown. My blog is also hosted on Vercel, so this article is written in that context.
 
-    module.exports = {
-      webpack: function(config) {
-        config.module.rules.push({
-          test: /\.md$/,
-          use: 'raw-loader',
-        })
-        return config
-      }
-    }
+## Getting Started
 
-> This post is not at all about iPhones per se, it’s about all smartphones.
+1. You need to create an [account](https://app.forestry.io/login). You can sign up with GitHub, GitLab or Bitbucket.
+2. After you create your account, you'll be taken to your dashboard. Click on "Add Site".
+3. Select a static-site generator. You can also choose from a list of starters if you've not set up a git repo.
+4. Select your Git provider. In order to import your site, access to your Git provider is required. Forestry supports GitHub, GitLab, BitBucket, and Azure DevOps
+5. Choose a repository and branch. You can add multiple branches to a repo.
 
-A list of fruits:
+After granting Forestry access to your repo, you'll be taken to your site to configure the CMS sidebar.
 
-1. Apples
-2. Oranges
-3. Lemons
-4. Grapes
+## Managing Content
 
-![](https://res.cloudinary.com/chuck-huey/image/upload/v1616515588/personal/blog/images/olivia-sisinni-bg_juc3tn.jpg)dummy image
+The sidebar is where you set up your content sections, configure how you store your media files, configure frontmatter, etc. You can setup folders and files that would house your content. 
 
-## Prologue
+![](https://res.cloudinary.com/chuck-huey/image/upload/v1617276985/personal/blog/images/Screenshot_2021-04-01_at_12.35.53_yhhlef.png)
 
-This is when the music stops and it all goes silent and mama mia says HHAAAA!!!!.
+For example, I have a folder labelled `Blog` on my sidebar which houses my markdown files. This folder is synchronized to a folder `posts` on my repo, where my code extracts the markdown for display.
+
+## Editor
+
+Forestry gives you a good WYSIWYG editor for writing content. In the image below, on the left is the post's metadata, defined when I configured my frontmatter. On the right is the content body.
+
+![](https://res.cloudinary.com/chuck-huey/image/upload/v1617276663/personal/blog/images/Screenshot_2021-04-01_at_12.22.16_wfu12z_c_scale_w_1248_kpq0tg.png)
+
+You can draft posts and publish when you need to.
+
+## Front Matter
+
+There's a dedicated section for configuring frontmatter. Frontmatter is structured metadata that you can use in your markdown files. You can add as many templates as you want. I have one for my posts and it's autogenerated for any new article I want to write.
+
+Each template settings is saved in a `yml` file in a  `.forestry` folder in your repo. As a matter of fact, your site settings are saved in a YAML file in the `.forestry` folder.
+
+## Media 
+
+Forestry supports upload of images and PDFs. These files can be saved in your repo, or you can connect to a remote provider. Forestry currently supports storing your files in Cloudinary, AWS S3, and Netlify Large Media. I use Cloudinary and it was easy to setup.
+
+## Deployment
+
+Forestry's job is to provide a user interface to handle your content. Deploying your content is up to you. I host my blog on Vercel, with continuous deployment set up.  When there's a change to files in my repo, Vercel builds and deploys my site. Check the [docs](https://forestry.io/docs/hosting/) for hosting guides with a number of services.
+
+## Conclusion
+
+I have to say Forestry is an excellent content management platform. The free plan is really generous for my needs. The docs is excellent. I'm really optimistic about it and I hope it turns out great.
