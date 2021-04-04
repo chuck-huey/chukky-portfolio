@@ -1,19 +1,12 @@
 ---
-publish_date: '2021-03-18T18:50:19.000+00:00'
-post_tags:
-- forestrycms
-- " jamstack"
-- blog
-post_title: Hello World - How I Built my Blog with Forestry CMS
-post_summary: How I setup my blog with Forestry CMS
 title: Hello World - How I built my Blog with Forestry CMS
 tags:
-- forestry
-- blog
+  - forestrycms
+  - blog
 summary: How I built my blog with Forestry CMS.
 date: 2021-03-23T15:33:44Z
-
 ---
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
 
 ## **Subdomain**
@@ -39,7 +32,7 @@ A list of fruits:
 3. Lemons
 4. Grapes
 
-![](https://res.cloudinary.com/chuck-huey/image/upload/v1616515588/personal/blog/images/olivia-sisinni-bg_juc3tn.jpg)dummy image
+![](https://res.cloudinary.com/chuck-huey/image/upload/v1616515588/personal/blog/images/olivia-sisinni-bg_juc3tn.jpg)
 
 ## Prologue
 
