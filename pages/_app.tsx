@@ -68,16 +68,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	a {
-		color: rgb(79, 70, 229);
+		color: #6366f1;
 		font-weight: 600;
 		font-family: var(--font-fam-heading);
 		text-decoration:none;
 		transition: box-shadow 400ms ease 0s;
-    box-shadow: 0px 0px 0px rgb(79, 70, 229);
+    box-shadow: 0px 0px 0px #6366f1;
 
 		&:hover{
 			transition: box-shadow 100ms ease 0s;
-			box-shadow: 0px 2px 0px rgb(79, 70, 229);
+			box-shadow: 0px 2px 0px #6366f1;
 		}
 	}
 

@@ -79,7 +79,7 @@ const StyledContainer = styled.section`
 
 		.heading__text {
 			font-size: 1.2rem;
-			color: #094067;
+			color: #094067e6;
 			max-width: 44em;
 			line-height: 1.6;
 		}
@@ -89,7 +89,7 @@ const StyledContainer = styled.section`
 		font-size: 2rem;
 		margin-top: 3em;
 		margin-bottom: 1em;
-		color: #094067;
+		color: #094067e6;
 		font-weight: 600;
 	}
 
