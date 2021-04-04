@@ -7,6 +7,7 @@ import { FiExternalLink } from 'react-icons/fi';
 import { Body } from '../components/Body';
 import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
+import { Footer } from '../components/Footer';
 
 const navList = [
 	{ text: 'blog', url: '/blog' },
@@ -173,42 +174,10 @@ export default function Homepage() {
 				</Section>
 			</Body>
 
-			<Footer className="footer">
-				<p>
-					Designed & Developed by{' '}
-					<a
-						href="https://github.com/chukky-ekrresa"
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						Ochuko Ekrresa.
-					</a>
-				</p>
-			</Footer>
+			<Footer />
 		</>
 	);
 }
-
-const Footer = styled.footer`
-	background: #04395e;
-	color: #edf5fc;
-	font-size: 0.9rem;
-	position: sticky;
-	left: 0;
-	bottom: 0;
-	padding: 1em;
-	text-align: center;
-
-	a {
-		color: #ed4d6e;
-	}
-
-	.love {
-		vertical-align: middle;
-		margin: 0 0.3em;
-		color: crimson;
-	}
-`;
 
 const Section = styled.section`
 	position: relative;
