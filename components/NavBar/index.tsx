@@ -54,13 +54,13 @@ const StyledHeader = styled.header`
 		color: #0e7dcc;
 		font-weight: 800;
 		letter-spacing: 0.5px;
-		-webkit-text-stroke: #292929;
-		-webkit-text-stroke-width: 1.3px;
 		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 		a {
 			font-family: var(--font-fam-heading);
 			color: inherit;
+			-webkit-text-stroke-color: #285561;
+			-webkit-text-stroke-width: 1.5px;
 
 			&:hover {
 				box-shadow: none;
