@@ -18,9 +18,9 @@ date: 2021-03-23T15:33:44Z
 ---
 This is the _hello-world_ article for my blog. In this article, I will show you how to integrate [Forestry](https://forestry.io/) into your blog to handle content management. I was doing some research on the best CMS to use for my blog, and I discovered Forestry from an article by [Gift Egwuenu](https://giftegwuenu.netlify.app/how-i-moved-my-blog-to-forestry-cms/). I was intrigued by the fact that it stores your content in your Git provider. Essentially, you own your content, which is great.
 
-Forestry is a git-based content management system (CMS) for websites and web products built using [**_static site generators_**](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository. 
+Forestry is a git-based content management system (CMS) for websites and web products built using [**_static site generators_**](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit the content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository.
 
-I built my blog with NextJS, and my posts are saved in markdown. My blog is also hosted on Vercel, so this article is written in that context.
+I built my blog with NextJS, and my posts are saved in markdown. My blog is also hosted on [Vercel](https://vercel.com/), so this article is written in that context.
 
 ## Getting Started
 
@@ -34,11 +34,11 @@ After granting Forestry access to your repo, you'll be taken to your site to con
 
 ## Managing Content
 
-The sidebar is where you set up your content sections, configure how you store your media files, configure frontmatter, etc. You can setup folders and files that would house your content. 
+The sidebar is where you set up your content sections, configure how you store your media files, configure frontmatter, etc. You can set up folders and files that would house your content.
 
 ![](https://res.cloudinary.com/chuck-huey/image/upload/v1617276985/personal/blog/images/Screenshot_2021-04-01_at_12.35.53_yhhlef.png)
 
-For example, I have a folder labelled `Blog` on my sidebar which houses my markdown files. This folder is synchronized to a folder `posts` on my repo, where my code extracts the markdown for display.
+For example, I have a folder labelled `Blog` on my sidebar which houses my markdown files. This folder is synchronized to a folder called `posts`on my repo, where my code processes the markdown for display.
 
 ## Editor
 
@@ -54,7 +54,7 @@ There's a dedicated section for configuring frontmatter. Frontmatter is structur
 
 Each template settings is saved in a `yml` file in a  `.forestry` folder in your repo. As a matter of fact, your site settings are saved in a YAML file in the `.forestry` folder.
 
-## Media 
+## Media
 
 Forestry supports upload of images and PDFs. These files can be saved in your repo, or you can connect to a remote provider. Forestry currently supports storing your files in Cloudinary, AWS S3, and Netlify Large Media. I use Cloudinary and it was easy to setup.
 
