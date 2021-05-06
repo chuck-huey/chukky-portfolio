@@ -46,20 +46,22 @@ export function NavBar(props: NavProps) {
 const StyledHeader = styled.header`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding-top: 1.5em;
 	padding-bottom: 1.5em;
 
 	.logo {
 		font-size: 1.9rem;
-		color: #3f5898;
+		color: #0e7dcc;
 		font-weight: 800;
 		letter-spacing: 0.5px;
-		-webkit-text-stroke: #292929;
-		-webkit-text-stroke-width: 1.3px;
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 		a {
 			font-family: var(--font-fam-heading);
 			color: inherit;
+			-webkit-text-stroke-color: #285561;
+			-webkit-text-stroke-width: 1.5px;
 
 			&:hover {
 				box-shadow: none;
@@ -102,9 +104,9 @@ const StyledHeader = styled.header`
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-		justify-content: space-around;
+		justify-content: space-between;
 		width: 2.9em;
-		height: 2em;
+		height: 1.4em;
 		cursor: pointer;
 		padding: 0px 8px;
 
@@ -112,7 +114,7 @@ const StyledHeader = styled.header`
 			display: block;
 			border-radius: 10px;
 			background: #232946;
-			padding: 1.6px;
+			padding: 1.5px;
 
 			&:nth-of-type(1) {
 				width: 80%;
@@ -123,7 +125,7 @@ const StyledHeader = styled.header`
 			}
 
 			&:nth-of-type(3) {
-				width: 65%;
+				width: 100%;
 			}
 		}
 
