@@ -46,6 +46,7 @@ export function NavBar(props: NavProps) {
 const StyledHeader = styled.header`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding-top: 1.5em;
 	padding-bottom: 1.5em;
 
@@ -103,9 +104,9 @@ const StyledHeader = styled.header`
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-		justify-content: space-around;
+		justify-content: space-between;
 		width: 2.9em;
-		height: 2em;
+		height: 1.4em;
 		cursor: pointer;
 		padding: 0px 8px;
 
@@ -113,7 +114,7 @@ const StyledHeader = styled.header`
 			display: block;
 			border-radius: 10px;
 			background: #232946;
-			padding: 1.6px;
+			padding: 1.5px;
 
 			&:nth-of-type(1) {
 				width: 80%;
@@ -124,7 +125,7 @@ const StyledHeader = styled.header`
 			}
 
 			&:nth-of-type(3) {
-				width: 65%;
+				width: 100%;
 			}
 		}
 

@@ -88,7 +88,6 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0.7em;
 		margin-right: 1em;
 		border-radius: 5px;
-		width: 10em;
 		border: 1px solid;
 		cursor: pointer;
 		display: inline-block;
