@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { format } from 'date-fns';
 
 import { Body } from '../../components/Body';
 import { NavBar } from '../../components/NavBar';
 import { getSortedPostsData, PostFrontMatter } from '../../lib/posts';
+import { Footer } from '../../components/Footer';
 
 const navList = [
 	{ text: 'portfolio', url: '/' },
@@ -25,36 +27,33 @@ export default function BlogHome(props: { allPostsData: PostFrontMatter[] }) {
 					<main className="main container">
 						<h1 className="heading">Hey, I'm Ochuko Ekrresa</h1>
 						<p className="heading__text">
-							I'm a software engineer based in Lagos, Nigeria. This is where I share my
-							knowledge on things I'm interested in.
+							I'm a software engineer based in Lagos, Nigeria. This is where I write about
+							things I'm interested in.
 						</p>
 					</main>
 
-					<div className="construction">Not Finished</div>
-
 					<section className="container">
 						<h2 className="article__heading">Articles</h2>
-						<section className="articles">
+						<ul className="articles">
 							{allPostsData.map(data => (
-								<Link href="#" key={data.id}>
-									<div className="post__card">
-										<h3>{data.title}</h3>
-										<p>{data.summary}</p>
-									</div>
-								</Link>
+								<li key={data.id} className="post__card">
+									<Link href={`/blog/${data.id}`}>
+										<div>
+											<p className="post__date">
+												{format(new Date(JSON.parse(data.date)), 'MMMM d, yyyy')}
+											</p>
+											<h3>{data.title}</h3>
+											<p>{data.summary}</p>
+										</div>
+									</Link>
+								</li>
 							))}
-							{allPostsData.map(data => (
-								<Link href="#" key={data.id}>
-									<div className="post__card">
-										<h3>{data.title}</h3>
-										<p>{data.summary}</p>
-									</div>
-								</Link>
-							))}
-						</section>
+						</ul>
 					</section>
 				</StyledContainer>
 			</Body>
+
+			<Footer />
 		</>
 	);
 }
@@ -74,48 +73,57 @@ const StyledContainer = styled.section`
 		.heading {
 			font-size: 3rem;
 			font-weight: 600;
-			color: #04395e;
+			color: #094067e6;
+			margin-bottom: 0;
 		}
 
 		.heading__text {
 			font-size: 1.2rem;
-			color: #094067;
+			color: #094067e6;
 			max-width: 44em;
 			line-height: 1.6;
 		}
 	}
 
-	.construction {
-		color: #ef45651f;
-		text-transform: uppercase;
-		position: absolute;
-		z-index: -10;
-		font-size: 10rem;
-		font-weight: 700;
-		transform: translate(31%, -50%);
-	}
-
 	.article__heading {
 		font-size: 2rem;
 		margin-top: 3em;
-		color: #006ccc;
+		margin-bottom: 1em;
+		color: #094067e6;
+		font-weight: 600;
 	}
 
 	.articles {
 		display: grid;
 		grid-template-columns: auto auto;
 		gap: 3em;
+		list-style: none;
+		padding-left: 0;
 	}
 
 	.post__card {
-		box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 		border-radius: 4px;
-		max-width: 60em;
-		padding: 1em;
-		margin-bottom: 1em;
+		margin-bottom: 3em;
+		cursor: pointer;
+		color: #094067;
+
+		.post__date {
+			margin: 0;
+			font-size: 0.85rem;
+			font-weight: 500;
+		}
 
 		h3 {
-			font-size: 1.1rem;
+			font-size: 1.2rem;
+			color: #ee495c;
+			margin-top: 0.3em;
+			font-weight: 600;
+		}
+
+		p {
+			font-size: 0.95rem;
+			opacity: 0.8;
+			font-weight: 500;
 		}
 	}
 `;

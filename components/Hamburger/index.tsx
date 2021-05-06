@@ -8,13 +8,26 @@ export function Hamburger({ navStatus = false, handleNav = () => {} }) {
 
 			<ul className="menu__list">
 				<li>
-					<a href="#">Projects</a>
+					<a href="/blog">Blog</a>
 				</li>
 				<li>
-					<a href="#">About</a>
+					<a href="#projects">Projects</a>
 				</li>
 				<li>
-					<a href="#">Contact</a>
+					<a href="#about">About</a>
+				</li>
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+
+				<li>
+					<a
+						className="btn resume__btn"
+						href="https://drive.google.com/file/d/1KdcDdmWYL87CHy2Q-2DGCS01FRIh_-cW/view?usp=sharing"
+						target="_blank"
+					>
+						Resumé
+					</a>
 				</li>
 			</ul>
 		</StyledHamburger>
@@ -28,20 +41,21 @@ const StyledHamburger = styled.aside<{ navOpen: boolean }>`
 	top: 0;
 	right: 0;
 	height: 100vh;
-	background: #edf5fc;
+	background: #fffffe;
 	box-shadow: -8px 0 21px 0px #1f404c4f;
 	margin-block-start: 0;
 	transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 	visibility: ${({ navOpen }) => (navOpen ? 'visible' : 'hidden')};
 	transform: ${({ navOpen }) => (navOpen ? 'translateX(0)' : 'translateX(100%)')};
 	opacity: ${({ navOpen }) => (navOpen ? 1 : 0)};
+	z-index: 5;
 
 	.close {
 		font-size: 2.5rem;
 		margin-left: auto;
 		display: block;
-		margin-right: 0.4em;
-		margin-top: 0.5em;
+		margin-right: 0.5em;
+		margin-top: 0.6em;
 		color: #232946;
 		cursor: pointer;
 	}
@@ -57,11 +71,29 @@ const StyledHamburger = styled.aside<{ navOpen: boolean }>`
 		li {
 			padding: 0.5em;
 			margin-bottom: 1em;
-			font-size: 1.3rem;
+			font-size: 1.1rem;
+			text-transform: uppercase;
 
 			&:last-child {
 				margin-bottom: 0;
 			}
+
+			a {
+				color: #094067;
+				font-family: var(--font-fam-heading);
+			}
+		}
+
+		.resume__btn {
+			font-weight: 700;
+			font-family: var(--font-fam-text);
+			width: 11em;
+			text-transform: uppercase;
+			background: #ee495c;
+			color: #fff;
+			border-color: #f05365;
+			font-size: 0.9rem;
+			padding: 0.9em 1.5em;
 		}
 	}
 `;
