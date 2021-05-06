@@ -115,7 +115,7 @@ const StyledContainer = styled.section`
 
 		h3 {
 			font-size: 1.2rem;
-			color: rgb(255, 118, 118);
+			color: #ee495c;
 			margin-top: 0.3em;
 			font-weight: 600;
 		}

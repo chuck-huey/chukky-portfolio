@@ -320,7 +320,7 @@ const Main = styled.section`
 			grid-template-columns: auto;
 			grid-gap: 1em;
 			justify-content: center;
-			margin-top: 2.5em;
+			margin-top: 3.5em;
 
 			@media (min-width: 480px) {
 				grid-template-columns: auto auto;
