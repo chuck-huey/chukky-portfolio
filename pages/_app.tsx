@@ -9,9 +9,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<link rel="icon" href="/favicon.ico" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
 				<link
-					href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
 					rel="stylesheet"
 				/>
 				<link
@@ -19,10 +20,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					rel="stylesheet"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap"
 					rel="stylesheet"
 				/>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Component {...pageProps} />
 		</>
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
 		scroll-behavior: smooth;
-		--font-fam-heading: 'Ubuntu', sans-serif;
+		--font-fam-heading: 'Work Sans', sans-serif;
 		--font-fam-code: 'Source Code Pro', monospace;
 		--font-fam-text: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
 		"Helvetica Neue", Arial, 		sans-serif;
@@ -68,26 +68,26 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	a {
-		color: #4433ff;
+		color: #6366f1;
 		font-weight: 600;
 		font-family: var(--font-fam-heading);
 		text-decoration:none;
 		transition: box-shadow 400ms ease 0s;
-    box-shadow: 0px 0px 0px #4433ff;
+    box-shadow: 0px 0px 0px #6366f1;
 
 		&:hover{
-		transition: box-shadow 100ms ease 0s;
-    box-shadow: 0px 2px 0px #4433ff;
+			transition: box-shadow 100ms ease 0s;
+			box-shadow: 0px 2px 0px #6366f1;
 		}
 	}
 
 	a.btn {
 		background: inherit;
 		color: #04395e;
+		font-family: var(--font-fam-text);
 		padding: 0.7em;
 		margin-right: 1em;
 		border-radius: 5px;
-		width: 10em;
 		border: 1px solid;
 		cursor: pointer;
 		display: inline-block;

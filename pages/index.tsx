@@ -7,6 +7,7 @@ import { FiExternalLink } from 'react-icons/fi';
 import { Body } from '../components/Body';
 import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
+import { Footer } from '../components/Footer';
 
 const navList = [
 	{ text: 'blog', url: '/blog' },
@@ -71,10 +72,9 @@ export default function Homepage() {
 					</main>
 				</Main>
 
-				<Section id="about">
+				<Section id="about" className="about__section">
 					<div className="container">
 						<h2 className="section__header">About Me</h2>
-						<div className="background">about me</div>
 
 						{/* https://www.drawkit.io/illustrations/entryway-monochrome */}
 						<img className="about__background" src="/entryway.svg" alt="" />
@@ -101,10 +101,9 @@ export default function Homepage() {
 					</div>
 				</Section>
 
-				<Section id="projects">
+				<Section id="projects" className="projects__section">
 					<div className="container">
 						<h2 className="section__header">Projects</h2>
-						<div className="background">projects</div>
 
 						<Project
 							alignment="left"
@@ -152,7 +151,7 @@ export default function Homepage() {
 					</div>
 				</Section>
 
-				<Section id="contact">
+				<Section id="contact" className="contact__section">
 					<div className="container">
 						<h2 className="section__header">contact me</h2>
 						<div className="background">contact</div>
@@ -165,7 +164,7 @@ export default function Homepage() {
 							</p>
 						</div>
 						<div style={{ marginTop: '2em' }}>
-							<a className="btn" href="mailto:ekrresaochuko@gmail.com">
+							<a className="btn contact__btn" href="mailto:ekrresaochuko@gmail.com">
 								Contact Me
 							</a>
 						</div>
@@ -173,48 +172,14 @@ export default function Homepage() {
 				</Section>
 			</Body>
 
-			<Footer className="footer">
-				<p>
-					Designed & Developed by{' '}
-					<a
-						href="https://github.com/chukky-ekrresa"
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						Ochuko Ekrresa.
-					</a>
-				</p>
-			</Footer>
+			<Footer />
 		</>
 	);
 }
 
-const Footer = styled.footer`
-	background: #04395e;
-	color: #edf5fc;
-	font-size: 0.9rem;
-	position: sticky;
-	left: 0;
-	bottom: 0;
-	padding: 1em;
-	text-align: center;
-
-	a {
-		color: #ed4d6e;
-	}
-
-	.love {
-		vertical-align: middle;
-		margin: 0 0.3em;
-		color: crimson;
-	}
-`;
-
 const Section = styled.section`
 	position: relative;
 	overflow: hidden;
-	margin-top: 1em;
-	margin-bottom: 8em;
 
 	.background {
 		color: rgba(91, 79, 79, 0.02);
@@ -231,7 +196,6 @@ const Section = styled.section`
 		right: 0;
 		top: 0;
 		width: 28em;
-		z-index: -20;
 		display: none;
 
 		@media (min-width: 880px) {
@@ -256,10 +220,22 @@ const Section = styled.section`
 			color: #094067;
 		}
 	}
+
+	.contact__btn {
+		font-weight: 700;
+		font-family: var(--font-fam-text);
+		width: 11em;
+		text-transform: uppercase;
+		background: #ee495c;
+		color: #fff;
+		border-color: #f05365;
+		font-size: 0.9rem;
+		padding: 0.9em 1.5em;
+	}
 `;
 
 const Main = styled.section`
-	height: 100vh;
+	min-height: 100vh;
 	position: relative;
 	overflow: hidden;
 
@@ -276,13 +252,13 @@ const Main = styled.section`
 	}
 
 	.main {
-		margin-top: 8em;
+		margin-top: 5.5em;
 		text-align: center;
+		padding-bottom: 3em;
 
 		.name {
-			color: #04395e;
 			color: #006ccc;
-			font-size: 3.2rem;
+			font-size: 2.8rem;
 			font-weight: 600;
 			margin: 0;
 			line-height: 1.1;
@@ -298,7 +274,7 @@ const Main = styled.section`
 
 		.title {
 			color: #094067;
-			font-size: 2rem;
+			font-size: 1.9rem;
 			font-weight: 500;
 			margin-top: 0.2em;
 			margin-bottom: 0.7em;
@@ -323,6 +299,7 @@ const Main = styled.section`
 
 			.skill__item {
 				margin-right: 1.5em;
+				font-size: 1.1rem;
 
 				&:last-child {
 					margin-right: 0;
@@ -339,11 +316,26 @@ const Main = styled.section`
 		}
 
 		.actions {
-			text-align: center;
-			margin-top: 2.5em;
+			display: grid;
+			grid-template-columns: auto;
+			grid-gap: 1em;
+			justify-content: center;
+			margin-top: 3.5em;
+
+			@media (min-width: 480px) {
+				grid-template-columns: auto auto;
+			}
 
 			a {
-				font-weight: 500;
+				font-weight: 700;
+				font-family: var(--font-fam-text);
+				width: 14em;
+				text-transform: uppercase;
+				background: #ee495c;
+				color: #fff;
+				border-color: #f05365;
+				font-size: 0.9rem;
+				padding: 0.9em 1.5em;
 			}
 		}
 
@@ -353,22 +345,6 @@ const Main = styled.section`
 
 		@media (min-width: 1100px) {
 			margin-top: 14em;
-		}
-	}
-
-	.scroll__down {
-		display: none;
-		position: absolute;
-		bottom: 4em;
-		left: 49.2%;
-		cursor: pointer;
-
-		&:hover {
-			box-shadow: none;
-		}
-
-		@media (min-width: 880px) {
-			display: block;
 		}
 	}
 `;
