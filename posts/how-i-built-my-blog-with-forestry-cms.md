@@ -1,15 +1,15 @@
 ---
-title: How I built my Blog with Forestry CMS
+title: How I built my blog with Forestry CMS
 tags:
-  - blog
-  - 'forestrycms '
-  - jamstack
-  - nextjs
+- blog
+- 'forestrycms '
+- jamstack
+- nextjs
 summary: A simple guide on how I integrated Forestry into my blog to manage my articles.
-date: 2021-03-23T15:33:44Z
+date: 2021-03-23T15:33:44.000+00:00
 published: false
----
 
+---
 This is the _hello-world_ article for my blog. In this article, I will show you how to integrate [Forestry](https://forestry.io/) into your blog to handle content management. I was doing some research on the best CMS to use for my blog, and I discovered Forestry from an article by [Gift Egwuenu](https://giftegwuenu.netlify.app/how-i-moved-my-blog-to-forestry-cms/). I was intrigued by the fact that it stores your content in your Git provider. Essentially, you own your content, which is great.
 
 Forestry is a git-based content management system (CMS) for websites and web products built using [static site generators](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit the content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository.
