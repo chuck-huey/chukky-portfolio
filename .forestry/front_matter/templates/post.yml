@@ -38,7 +38,7 @@ fields:
   label: post summary
 - name: published
   type: boolean
-  label: Published
+  label: published?
   description: Sets whether the post is ready to be published.
   hidden: false
   default: false
