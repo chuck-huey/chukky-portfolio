@@ -89,9 +89,9 @@ const StyledHamburger = styled.aside<{ navOpen: boolean }>`
 			font-family: var(--font-fam-text);
 			width: 11em;
 			text-transform: uppercase;
-			background: #ee495c;
+			background: #006ccc;
 			color: #fff;
-			border-color: #f05365;
+			border-color: #006ccc;
 			font-size: 0.9rem;
 			padding: 0.9em 1.5em;
 		}
