@@ -63,7 +63,8 @@ const GlobalStyle = createGlobalStyle`
 	}
 
   img {
-    width: 100%;
+    max-width: 100%;
+		height: auto;
     object-fit: cover;
   }
 
@@ -86,7 +87,6 @@ const GlobalStyle = createGlobalStyle`
 		color: #04395e;
 		font-family: var(--font-fam-text);
 		padding: 0.7em;
-		margin-right: 1em;
 		border-radius: 5px;
 		border: 1px solid;
 		cursor: pointer;
