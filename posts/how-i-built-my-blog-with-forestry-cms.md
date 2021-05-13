@@ -19,7 +19,7 @@ published: false
 ---
 This is the _hello-world_ article for my blog. In this article, I will show you how to integrate [Forestry](https://forestry.io/) into your blog to handle content management. I was doing some research on the best CMS to use for my blog, and I discovered Forestry from an article by [Gift Egwuenu](https://giftegwuenu.netlify.app/how-i-moved-my-blog-to-forestry-cms/). I was intrigued by the fact that it stores your content in your Git provider. Essentially, you own your content, which is great.
 
-Forestry is a git-based content management system (CMS) for websites and web products built using [**_static site generators_**](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit the content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository.
+Forestry is a git-based content management system (CMS) for websites and web products built using [static site generators](https://forestry.io/docs/faqs/glossary/static-site-generators/ "Static Site Generators"). It provides an easy way for you to create and edit the content on your website. Among other things, it provides a WYSIWIG editor for writing. Forestry works by synchronizing content changes with a Git repository.
 
 I built my blog with NextJS, and my posts are saved in markdown. My blog is also hosted on [Vercel](https://vercel.com/), so this article is written in that context.
 
@@ -39,7 +39,7 @@ The sidebar is where you set up your content sections, configure how you store y
 
 ![](https://res.cloudinary.com/chuck-huey/image/upload/v1617276985/personal/blog/images/Screenshot_2021-04-01_at_12.35.53_yhhlef.png)
 
-For example, I have a folder labelled `Blog` on my sidebar which houses my markdown files. This folder is synchronized to a folder called `posts`on my repo, where my code processes the markdown for display.
+For example, I have a folder labelled `Blog` on my sidebar which houses my markdown files. This folder is synchronized to a folder called `posts` on my repo, where my code processes the markdown for display.
 
 ## Editor
 
