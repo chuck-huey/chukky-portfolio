@@ -119,7 +119,6 @@ const StyledProject = styled.section<{ alignment: string }>`
 		color: #094067;
 		padding: 2em;
 		background-color: #ffffff;
-		background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		border: 1px solid #eee;
@@ -129,7 +128,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 			font-family: var(--font-fam-heading);
 			font-size: 1.3rem;
 			margin-top: 0;
-			color: #c12e8f;
+			color: #0e5e97;
 		}
 
 		.skills {
