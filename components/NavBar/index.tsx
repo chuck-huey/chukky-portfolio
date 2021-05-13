@@ -101,21 +101,17 @@ const StyledHeader = styled.header`
 	.nav {
 		display: none;
 		align-items: center;
-		color: #094067;
+		color: #0e5e97;
 		font-weight: 500;
-		font-size: 1rem;
-		text-transform: uppercase;
+		text-transform: lowercase;
 
 		.nav__item {
 			margin-right: 2em;
 
 			a {
 				color: inherit;
-				font-family: var(--font-fam-heading);
-
-				&:hover {
-					box-shadow: 0px 2px 0px #094067;
-				}
+				font-size: 1.3rem;
+				font-family: var(--font-fam-text);
 			}
 
 			&:last-child {
