@@ -13,7 +13,7 @@ sections:
   templates:
   - post
 upload_dir: personal/blog/images
-public_path: https://res.cloudinary.com/chuck-huey/image/upload
+public_path: https://res.cloudinary.com/chuck-huey/image/upload/c_scale,dpr_auto,w_auto,q_auto,f_auto
 front_matter_path: ''
 use_front_matter_path: 
 file_template: ":filename:"
