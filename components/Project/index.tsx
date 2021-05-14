@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { buildUrl } from 'cloudinary-build-url';
 
 type ProjectProps = {
-	projectLink: string;
+	projectLink?: string;
 	imagePublicID: string;
 	imageAlt: string;
 	projectTitle: string;
@@ -26,7 +26,7 @@ export function Project(props: ProjectProps) {
 	const src = buildUrl(props.imagePublicID, {
 		cloud: { cloudName: 'chuck-huey' },
 		transformations: {
-			format: 'webp',
+			format: 'auto',
 			quality: 1,
 		},
 	});
@@ -115,7 +115,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 	.project__content {
 		position: relative;
 		top: -6em;
-		z-index: 10;
+		z-index: 4;
 		color: #094067;
 		padding: 2em;
 		background-color: #ffffff;
