@@ -9,7 +9,7 @@ export const Body = styled.section`
 	.about__section,
 	.contact__section {
 		padding: 3em 0em;
-		background: #f5fbff;
+		background: #d8eefe;
 	}
 
 	.projects__section {

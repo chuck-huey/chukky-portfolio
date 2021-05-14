@@ -19,7 +19,7 @@ export function Footer() {
 }
 
 const StyledFooter = styled.footer`
-	background: #04395e;
+	background: #094067;
 	color: #edf5fc;
 	font-size: 0.9rem;
 	position: sticky;
@@ -29,6 +29,6 @@ const StyledFooter = styled.footer`
 	text-align: center;
 
 	a {
-		color: #ed4d6e;
+		color: #64ffda;
 	}
 `;

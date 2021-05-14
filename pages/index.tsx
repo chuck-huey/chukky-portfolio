@@ -158,7 +158,6 @@ export default function Homepage() {
 							imageAlt="star wars directory homepage"
 							imagePublicID="v1620831017/personal/portfolio/kayzQTL_cnbpvx"
 							projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
-							projectLink="https://star-wars-five.now.sh/"
 							stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
 						/>
 
