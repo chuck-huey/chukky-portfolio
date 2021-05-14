@@ -52,7 +52,7 @@ export function NavBar(props: NavProps) {
 				<span></span>
 			</div>
 
-			<Hamburger navStatus={nav} handleNav={() => toggleNav(!nav)} />
+			<Hamburger navStatus={nav} handleNav={() => toggleNav(!nav)} navList={navList} />
 			{/* Mobile menu */}
 
 			<motion.nav
@@ -93,7 +93,7 @@ const StyledHeader = styled.header`
 			-webkit-text-stroke-width: 1.5px;
 
 			&:hover {
-				box-shadow: none;
+				--d: none;
 			}
 		}
 	}
@@ -138,7 +138,7 @@ const StyledHeader = styled.header`
 		span {
 			display: block;
 			border-radius: 10px;
-			background: #232946;
+			background: #0e5e97;
 			padding: 1.5px;
 
 			&:nth-of-type(1) {
