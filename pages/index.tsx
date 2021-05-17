@@ -10,9 +10,10 @@ import { Body } from '../components/Body';
 import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
 import { Footer } from '../components/Footer';
+import Link from 'next/link';
 
 const navList = [
-	// { text: 'blog', url: '/blog' },
+	{ text: 'blog', url: '/blog' },
 	{ text: 'projects', url: '#projects' },
 	{ text: 'about', url: '#about' },
 	{ text: 'contact', url: '#contact' },
@@ -122,7 +123,12 @@ export default function Homepage() {
 						</motion.div>
 						<motion.div variants={itemVariant} className="bio">
 							I am a software engineer, experienced with building systems, and comfortable
-							solving problems on the frontend and backend. Check out my{' '}
+							solving problems on the frontend and backend. I currently work at{' '}
+							<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
+								Utu Technologies
+							</a>
+							, focused on making improvements to their ride infrastructure. I write{' '}
+							<Link href="/blog">here.</Link> Check out my{' '}
 							<a
 								href="https://github.com/chukky-ekrresa"
 								target="_blank"
