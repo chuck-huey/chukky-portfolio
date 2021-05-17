@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	a {
-		color: #6366f1;
+		color: #4f46e5;
 		font-weight: 600;
 		font-family: var(--font-fam-heading);
 		text-decoration:none;
