@@ -1,6 +1,8 @@
+import * as React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import * as React from 'react';
+import { motion, Variants } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -8,6 +10,7 @@ import { Body } from '../components/Body';
 import { NavBar } from '../components/NavBar';
 import { Project } from '../components/Project';
 import { Footer } from '../components/Footer';
+import Link from 'next/link';
 
 const navList = [
 	{ text: 'blog', url: '/blog' },
@@ -16,11 +19,83 @@ const navList = [
 	{ text: 'contact', url: '#contact' },
 ];
 
+const mainVariant: Variants = {
+	hidden: {
+		opacity: 0,
+		transition: {
+			when: 'afterChildren',
+		},
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			when: 'beforeChildren',
+			staggerChildren: 0.3,
+			delayChildren: 1,
+			type: 'tween',
+		},
+	},
+};
+
+const itemVariant: Variants = {
+	hidden: { opacity: 0, y: 30 },
+	visible: { opacity: 1, y: 0, transition: { type: 'tween', ease: 'easeOut' } },
+};
+
+const leftButtonVariant: Variants = {
+	hidden: { opacity: 0, x: '-100%' },
+	visible: { opacity: 1, x: 0 },
+};
+
+const rightButtonVariant: Variants = {
+	hidden: { opacity: 0, x: '100%' },
+	visible: { opacity: 1, x: 0 },
+};
+
 export default function Homepage() {
+	const isNotMobile = useMediaQuery({ minWidth: 546 });
+
 	return (
 		<>
 			<Head>
-				<title>Home - Ochuko Ekrresa | Software Engineer</title>
+				<title>Ochuko Ekrresa: Software Engineer, Frontend Developer</title>
+				<meta
+					name="description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+
+				{/* Open Graph */}
+				<meta
+					property="og:title"
+					content="Ochuko Ekrresa: Software Engineer, Frontend Developer"
+				/>
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://ekrresaochuko.com/" />
+				<meta
+					property="og:image"
+					content="https://res.cloudinary.com/chuck-huey/image/upload/v1621260122/personal/ochuko_ekrresa_portfolio_social_a6ph76.png"
+				/>
+				<meta
+					name="og:description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+
+				{/* Twitter Card */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					name="twitter:title"
+					content="Ochuko Ekrresa: Software Engineer, Frontend Developer"
+				/>
+				<meta name="twitter:creator" content="@chukky_ekrresa" />
+				<meta
+					name="twitter:description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+				<meta
+					name="twitter:image"
+					content="https://res.cloudinary.com/chuck-huey/image/upload/v1621260122/personal/ochuko_ekrresa_portfolio_social_a6ph76.png"
+				/>
+				<meta name="twitter:url" content="https://ekrresaochuko.com/" />
 			</Head>
 			<Body>
 				<Main>
@@ -28,18 +103,32 @@ export default function Homepage() {
 
 					<div className="background">ekrresa</div>
 
-					<main className="main container">
-						<h1 className="name">Ochuko Ekrresa</h1>
-						<h2 className="title">Software Engineer</h2>
-						<div className="skills">
+					<motion.main
+						initial="hidden"
+						animate="visible"
+						variants={mainVariant}
+						className="main container"
+					>
+						<motion.h1 variants={itemVariant} className="name">
+							Ochuko Ekrresa
+						</motion.h1>
+						<motion.h2 variants={itemVariant} className="title">
+							Software Engineer
+						</motion.h2>
+						<motion.div variants={itemVariant} className="skills">
 							<div className="skill__item">REACT</div>
 							<div className="skill__item">NODEJS</div>
 							<div className="skill__item">TYPESCRIPT</div>
 							<div className="skill__item">GRAPHQL</div>
-						</div>
-						<div className="bio">
+						</motion.div>
+						<motion.div variants={itemVariant} className="bio">
 							I am a software engineer, experienced with building systems, and comfortable
-							solving problems on the frontend and backend. Check out my{' '}
+							solving problems on the frontend and backend. I currently work at{' '}
+							<a href="https://utu.io/" target="_blank" rel="noreferrer noopener">
+								Utu Technologies
+							</a>
+							, focused on making improvements to their ride infrastructure. I write{' '}
+							<Link href="/blog">here.</Link> Check out my{' '}
 							<a
 								href="https://github.com/chukky-ekrresa"
 								target="_blank"
@@ -56,20 +145,21 @@ export default function Homepage() {
 								LinkedIn
 							</a>{' '}
 							page.
-						</div>
-						<div className="actions">
-							<a className="btn" href="#projects">
-								View my Projects
-							</a>
-							<a
+						</motion.div>
+						<motion.div variants={itemVariant} className="actions">
+							<motion.a variants={leftButtonVariant} className="btn" href="#projects">
+								{isNotMobile ? 'View my Projects' : 'Projects'}
+							</motion.a>
+							<motion.a
+								variants={rightButtonVariant}
 								className="btn"
 								href="https://drive.google.com/file/d/1KdcDdmWYL87CHy2Q-2DGCS01FRIh_-cW/view?usp=sharing"
 								target="_blank"
 							>
-								Get my Resumé
-							</a>
-						</div>
-					</main>
+								{isNotMobile ? 'Get my Resumé' : 'Resumé'}
+							</motion.a>
+						</motion.div>
+					</motion.main>
 				</Main>
 
 				<Section id="about" className="about__section">
@@ -109,16 +199,15 @@ export default function Homepage() {
 							alignment="left"
 							projectTitle="ANAP Foundation Admin Portal"
 							imageAlt="star wars directory homepage"
-							imageSrc="https://i.imgur.com/kayzQTL.png"
+							imagePublicID="v1620831017/personal/portfolio/kayzQTL_cnbpvx"
 							projectDesc="An admin dashboard for monitoring activities on ANAP Foundation's Covid-19 project."
-							projectLink="https://star-wars-five.now.sh/"
 							stack={['React', 'PostgreSQL', 'Redux', 'React Testing Library']}
 						/>
 
 						<Project
 							alignment="right"
 							imageAlt="Jumga E-commerce Homepage"
-							imageSrc="https://i.imgur.com/WxfJo6O.png"
+							imagePublicID="v1620831063/personal/portfolio/WxfJo6O_xfnmg4"
 							projectDesc="An e-commerce platform for users in Nigeria, Ghana, Kenya, and the UK. Built in 2 weeks. Payments are handled by Flutterwave."
 							projectLink="https://fluttermart.vercel.app/"
 							projectTitle="Jumga"
@@ -135,7 +224,7 @@ export default function Homepage() {
 						<Project
 							alignment="left"
 							imageAlt="star wars directory homepage"
-							imageSrc="https://i.imgur.com/kH5eM1v.jpg"
+							imagePublicID="v1620830802/personal/portfolio/kH5eM1v_e4mkrd"
 							projectDesc="A web app to explore the star wars mythology."
 							projectLink="https://star-wars-five.now.sh/"
 							projectTitle="Star Wars Directory"
@@ -218,17 +307,18 @@ const Section = styled.section`
 		p {
 			line-height: 1.7;
 			color: #094067;
+			font-size: 1.1rem;
 		}
 	}
 
 	.contact__btn {
-		font-weight: 700;
+		font-weight: 600;
 		font-family: var(--font-fam-text);
 		width: 11em;
 		text-transform: uppercase;
-		background: #ee495c;
+		background: #006ccc;
 		color: #fff;
-		border-color: #f05365;
+		border-color: #006ccc;
 		font-size: 0.9rem;
 		padding: 0.9em 1.5em;
 	}
@@ -253,8 +343,10 @@ const Main = styled.section`
 
 	.main {
 		margin-top: 5.5em;
-		text-align: center;
-		padding-bottom: 3em;
+
+		@media (min-width: 546px) {
+			text-align: center;
+		}
 
 		.name {
 			color: #006ccc;
@@ -273,7 +365,7 @@ const Main = styled.section`
 		}
 
 		.title {
-			color: #094067;
+			color: #094067d6;
 			font-size: 1.9rem;
 			font-weight: 500;
 			margin-top: 0.2em;
@@ -287,15 +379,18 @@ const Main = styled.section`
 		.skills {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: center;
 			line-height: 1.8;
 			margin-bottom: 2em;
 			font-family: var(--font-fam-heading);
 			font-weight: 600;
 			text-transform: uppercase;
 			font-size: 1.2rem;
-			color: #094067;
-			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			color: #094067d6;
+			text-shadow: 0px 4px 4px rgba(166, 73, 116, 0.25);
+
+			@media (min-width: 546px) {
+				justify-content: center;
+			}
 
 			.skill__item {
 				margin-right: 1.5em;
@@ -317,25 +412,29 @@ const Main = styled.section`
 
 		.actions {
 			display: grid;
-			grid-template-columns: auto;
+			grid-template-columns: auto auto;
+			justify-content: flex-start;
 			grid-gap: 1em;
-			justify-content: center;
 			margin-top: 3.5em;
 
-			@media (min-width: 480px) {
-				grid-template-columns: auto auto;
+			@media (min-width: 546px) {
+				justify-content: center;
 			}
 
 			a {
-				font-weight: 700;
+				font-weight: 600;
 				font-family: var(--font-fam-text);
-				width: 14em;
+				width: 11em;
 				text-transform: uppercase;
-				background: #ee495c;
+				background: #006ccc;
 				color: #fff;
-				border-color: #f05365;
+				border-color: #006ccc;
 				font-size: 0.9rem;
 				padding: 0.9em 1.5em;
+
+				@media (min-width: 546px) {
+					width: 14em;
+				}
 			}
 		}
 

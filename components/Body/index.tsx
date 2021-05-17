@@ -8,12 +8,12 @@ export const Body = styled.section`
 
 	.about__section,
 	.contact__section {
-		padding: 6em 0em;
-		background: #f5fbff;
+		padding: 3em 0em;
+		background: #d8eefe;
 	}
 
 	.projects__section {
-		padding: 6em 0em;
+		padding: 3em 0em;
 	}
 
 	.contact__section {

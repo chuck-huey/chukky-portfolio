@@ -1,10 +1,14 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { IconType } from 'react-icons';
+import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
 import styled from 'styled-components';
+import { buildUrl } from 'cloudinary-build-url';
 
 type ProjectProps = {
-	projectLink: string;
-	imageSrc: string;
+	projectLink?: string;
+	imagePublicID: string;
 	imageAlt: string;
 	projectTitle: string;
 	projectDesc: string;
@@ -19,17 +23,46 @@ type ProjectLink = {
 };
 
 export function Project(props: ProjectProps) {
+	const src = buildUrl(props.imagePublicID, {
+		cloud: { cloudName: 'chuck-huey' },
+		transformations: {
+			format: 'auto',
+			quality: 1,
+		},
+	});
+
+	const { ref, inView } = useInView();
+	const controls = useAnimation();
+
+	useEffect(() => {
+		if (inView) {
+			controls.start('visible');
+		}
+	}, [controls, inView]);
+
 	return (
-		<StyledProject alignment={props.alignment}>
+		<StyledProject
+			alignment={props.alignment}
+			as={motion.section}
+			ref={ref}
+			animate={controls}
+			initial="hidden"
+			transition={{ duration: 0.8, type: 'tween' }}
+			variants={{
+				visible: { y: 0 },
+				hidden: { y: 200 },
+			}}
+		>
 			<div className="project__image">
 				<a href={props.projectLink} target="_blank" rel="noreferrer noopener">
 					<Image
-						src={props.imageSrc}
+						src={src}
 						alt={props.imageAlt}
 						width={100}
 						height={60}
 						layout="responsive"
 						objectFit="fill"
+						unoptimized
 					/>
 				</a>
 			</div>
@@ -82,11 +115,10 @@ const StyledProject = styled.section<{ alignment: string }>`
 	.project__content {
 		position: relative;
 		top: -6em;
-		z-index: 10;
+		z-index: 4;
 		color: #094067;
 		padding: 2em;
 		background-color: #ffffff;
-		background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		border: 1px solid #eee;
@@ -96,7 +128,7 @@ const StyledProject = styled.section<{ alignment: string }>`
 			font-family: var(--font-fam-heading);
 			font-size: 1.3rem;
 			margin-top: 0;
-			color: #094067d6;
+			color: #0e5e97;
 		}
 
 		.skills {

@@ -63,21 +63,22 @@ const GlobalStyle = createGlobalStyle`
 	}
 
   img {
-    width: 100%;
+    max-width: 100%;
+		height: auto;
     object-fit: cover;
   }
 
 	a {
-		color: #6366f1;
+		color: #4f46e5;
 		font-weight: 600;
 		font-family: var(--font-fam-heading);
 		text-decoration:none;
-		transition: box-shadow 400ms ease 0s;
-    box-shadow: 0px 0px 0px #6366f1;
+		background: linear-gradient(currentColor 0 0) bottom /var(--d, 0) 2px no-repeat;
+		transition:0.5s;
+		padding-bottom: 1px;
 
 		&:hover{
-			transition: box-shadow 100ms ease 0s;
-			box-shadow: 0px 2px 0px #6366f1;
+			 --d: 100%;
 		}
 	}
 
@@ -86,7 +87,6 @@ const GlobalStyle = createGlobalStyle`
 		color: #04395e;
 		font-family: var(--font-fam-text);
 		padding: 0.7em;
-		margin-right: 1em;
 		border-radius: 5px;
 		border: 1px solid;
 		cursor: pointer;
