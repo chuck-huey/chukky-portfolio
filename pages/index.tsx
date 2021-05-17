@@ -12,7 +12,7 @@ import { Project } from '../components/Project';
 import { Footer } from '../components/Footer';
 
 const navList = [
-	{ text: 'blog', url: '/blog' },
+	// { text: 'blog', url: '/blog' },
 	{ text: 'projects', url: '#projects' },
 	{ text: 'about', url: '#about' },
 	{ text: 'contact', url: '#contact' },
@@ -57,7 +57,44 @@ export default function Homepage() {
 	return (
 		<>
 			<Head>
-				<title>Home - Ochuko Ekrresa | Software Engineer</title>
+				<title>Ochuko Ekrresa: Software Engineer, Frontend Developer</title>
+				<meta
+					name="description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+
+				{/* Open Graph */}
+				<meta
+					property="og:title"
+					content="Ochuko Ekrresa: Software Engineer, Frontend Developer"
+				/>
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://ekrresaochuko.com/" />
+				<meta
+					property="og:image"
+					content="https://res.cloudinary.com/chuck-huey/image/upload/v1621260122/personal/ochuko_ekrresa_portfolio_social_a6ph76.png"
+				/>
+				<meta
+					name="og:description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+
+				{/* Twitter Card */}
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					name="twitter:title"
+					content="Ochuko Ekrresa: Software Engineer, Frontend Developer"
+				/>
+				<meta name="twitter:creator" content="@chukky_ekrresa" />
+				<meta
+					name="twitter:description"
+					content="Ochuko Ekrresa is a software engineer with great skills in building experiences for the web"
+				/>
+				<meta
+					name="twitter:image"
+					content="https://res.cloudinary.com/chuck-huey/image/upload/v1621260122/personal/ochuko_ekrresa_portfolio_social_a6ph76.png"
+				/>
+				<meta name="twitter:url" content="https://ekrresaochuko.com/" />
 			</Head>
 			<Body>
 				<Main>
