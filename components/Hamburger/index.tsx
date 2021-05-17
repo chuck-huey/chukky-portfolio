@@ -32,7 +32,7 @@ export function Hamburger({ navStatus = false, handleNav, navList }: Props) {
 
 			<ul className="menu__list">
 				{navList.map(navItem => (
-					<li>
+					<li key={navItem.text}>
 						<a href={navItem.url} onClick={() => handleNav()}>
 							{navItem.text}
 						</a>
