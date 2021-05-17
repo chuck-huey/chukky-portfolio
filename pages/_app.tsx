@@ -68,17 +68,6 @@ const GlobalStyle = createGlobalStyle`
     object-fit: cover;
   }
 
-	/* .basic-3 {
-  background:
-      linear-gradient(currentColor 0 0)
-      bottom /var(--d, 0) 3px
-      no-repeat;
-  transition:0.5s;
-}
-.basic-3:hover {
-  --d: 100%;
-} */
-
 	a {
 		color: #6366f1;
 		font-weight: 600;
@@ -86,6 +75,7 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration:none;
 		background: linear-gradient(currentColor 0 0) bottom /var(--d, 0) 2px no-repeat;
 		transition:0.5s;
+		padding-bottom: 1px;
 
 		&:hover{
 			 --d: 100%;
